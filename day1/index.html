@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../src/output.css" />
+        <title>Day1</title>
+    </head>
+<body>
+<!-- container : class này trong tailwind cung cấp kích thước nhất định cho phần tử dựa vào kích thước màn hình
+    -> phần tử luôn cách lề nếu khung nhìn sm > 640 -> do chiều rộng của phần tử thay đổi dựa vào kích thước màn hình
+-->
+
+    <!--khối container dùng trong tailwind -> kích thước phần tử dựa vào kích thước của màn hình
+    khi màn hình > sm > 640 thì -> phần tử sẽ cách lề khoảng nhất định
+    mx-auto : margin 2 bên của phần tử bằng nhau   -->
+    <div class="container mx-auto bg-pink-500">Lorem ipsum dolor sit amet.</div>
+
+
+<!-- color : muốn sử dụng màu trong tailwind -> 1 : sử dụng những màu có sẵn và truyền vào sắc độ màu đó
+    - cú pháp : prefix-color-shade : prefix các thuộc tính chỉ màu sắc , color : màu sắc ,
+    shade : sắc độ chạy từ 100 -> 900 cách nhau 100 , nhỏ nhất là 50 lớn nhất là 950 
+    - vd : text-red-500 , bg-blue-950
+
+    -> 2 : sử dụng màu không được định nghĩa trong tailwind -> màu tùy chỉnh 
+    - cú pháp : màu hex prefix-[mã màu] -> vd : text-[#F5F4FA]
+            màu RGB prefix-[rgb(thông số)] -> vd : bg-[rgb(255,0,255)]
+            tên màu prefix-[tên màu] -> vd : text-[steelblue]
+    -->
+
+    <!-- các prefix thường dùng để sử dụng màu  -->
+    <!-- text : màu chữ -->
+    <!-- text-red-200 : màu chữ đỏ với sắc độ 200
+    bg-red-500 : màu nền đỏ với sắc độ 500  -->
+    <h1 class="text-red-200 bg-red-500 mt-3">Lorem, ipsum dolor.</h1>
+
+    <!-- bg : màu nền 
+        bg-blue-500 : màu nền xanh sắc độ 500 
+        mt-4 : margin-top -->
+    <p class="bg-blue-500 mt-4">Lorem, ipsum dolor.</p>
+
+    <!-- border : màu viền
+        border-3 -> độ dày của viền
+        border-pink-500 :màu sắc của viền -->
+    <p class="border-3 border-pink-500 mt-2">lorem</p>
+
+    <!-- underline : màu gạch chân  -> tác dụng lên thuộc tính decoration-color-shade 
+        muốn gạch chân có màu -> decoration-red-600 : màu gạch chân đỏ sắc độ 600-->
+    <p class="underline decoration-red-600 mt-5">
+        Văn bản được gạch chân và tô màu lên dựa trên thuộc tính decoration và bắt
+        buộc phải có class underline trước đó
+    </p>
+
+    <!-- divide (divide-x hoặc divide-y )  : đường chia giữa các phần tử -->
+    <div class="divide-y mt-3 divide-blue-900">
+        <div>lorem1</div>
+        <div>lorem2</div>
+        <div>lorem3</div>
+    </div>
+
+    <!-- outline : khi sử dụng button hoặc input sẽ có viền ngoài nhất định 
+    điều chỉnh màu viền ngoài đó thông qua thuộc tính outline 
+    vd : outline-pink-500 
+    outline-pink-500 : màu viền ngoài hồng sắc độ 500 -->
+    <button class="outline outline-pink-500 mt-4">Click me</button>
+
+    <!-- shadow : bóng đổ được định nghĩa sẵn trong tailwind ,
+    -> shadow- thông số chỉ độ to của bóng -> để cho biết khối này có bóng đổ
+    vd : shadow-sm , shadow-lg , shadow-xl -> size càng lớn bóng càng lớn
+    -> shadow- color - shade/opacity : shadow bóng , color màu , shade sắc độ , opacity độ mờ của màu bóng 
+    vd : shadow-pink-500/50 
+    -->
+
+    <!-- muốn điều chỉnh màu bóng :
+        shadow-lg : kích thước của bóng lg -> dựa và những định nghĩa có sẵn trong tailwind
+        shadow-pink-800/50 -> màu bóng hồng sắc độ 800 và 50 là độ mờ opacity  -->
+        <div class="mt-4 shadow-lg shadow-pink-800/50">bóng đổ của khối này được điều chỉnh thông qua tailwind</div>
+
+    <!-- accent : màu của checkbox trong form
+    accent-red-900 -> thuộc tính điều chỉnh màu của input type check box  -->
+    <div class="container mt-5">
+        click me<input class="accent-red-900" type="checkbox" name="" id="">
+        click me <input class="accent-black" type="checkbox" name="" id="">
+        click me <input type="checkbox" name="" id="">
+    </div>
+
+<!-- margin và padding : margin tạo khoảng cách giữa các phần tử 
+padding : tạo khoảng đệm giữa phần content và border của 1 phần tử -->
+    <!-- mt-5 : margin top 5 -> 5 * 4px = 20px -->
+    <div class="h-25 w-25 mt-5 bg-pink-600"></div>
+    <!-- -mt-5 : margin top -5 -> -5 * 4px = -20px  -->
+    <div class="h-25 w-25 -mt-5 bg-red-600 opacity-20"></div>
+
+    <!-- áp dụng responsive : sm > 640 , md > 768 , lg > 1024 , xl > 1280 , 2xl > 1536 -->
+
+    <!-- md:bg-pink-400 -> khi màn hình > md > 768 -> màu nền hồng 400
+    bg-blue-300 -> màn hình < 768 -> màu nền xanh 300 
+     lg:p-2 -> khi màn hình > lg > 1024 :thì padding tăng lên 2 * 4 = 8px
+    p-0 -> màn hình < 1024 : padding = 0  -->
+    <div class="h-25 w-25 md:bg-pink-300 bg-blue-300 lg:p-2 p-0" >
+        phần content
+    </div>
+
+
+<!-- width và height : width chiều rộng của phần tử
+    height chiều cao của phần tử  -->
+
+    <!-- dựa trên thông số được tính sẵn trong tailwind  -->
+
+    <!-- w-16 : width 16 * 4 = 64 px , h-16 : height 16 * 4 = 64 px  -->
+    <div class="w-16 h-16 bg-green-300"></div>
+
+    <!-- dựa vào phần trăm -> chiếm % = số kích thước của thẻ cha 
+    vd : w-1/2 -> chiếm 50%  , w-1/3 -> chiếm 33% , w-full -> chiếm 100%  -->
+
+    <!-- w-1/2 : width chiếm  50% dựa vào chiều rộng của phần tử cha -->
+    <div class="w-1/2 bg-green-900">alo 1</div>
+    <!-- w-full : width chiếm 100 % dựa vào chiều rộng của phần tử cha -->
+    <div class="w-full bg-yellow-900">alo 2</div>
+
+    <!-- dựa vào màn hình : viewport -> w-screen : chiếm 100 vw 
+    h-screen : chiếm 100 vh -->
+
+    <!-- w-screen : width 100vw -> chiều rộng dựa vào khung nhìn màn hình -->
+    <div class=" w-screen bg-pink-100">alo 3</div>
+
+
+    <!-- điều chỉnh width , height dựa trên các kích thước do người dùng chọn
+    - cú pháp : w-[kích thước mong muốn] -> vd : w-[32px] , h-[57%]  -->
+
+    <!-- w-[36%] : width 36% chiều rộng của phần tử cha
+    -> đây là cách điều chỉnh kích thước theo mong muốn của người dùng và nó không có sẵn trong tailwind -->
+    <div class="w-[36%] bg-green-500" >alo 4</div>
+
+
+    <!-- một số các điều chỉnh khác :
+        w-auto : tự động điều chỉnh kích thước dựa trên thuộc tính của phần tử
+        w-min : co nhỏ nhất kích thước không làm vỡ content
+        w-max : mở rộng tối đa theo content  -->
+
+<!-- size : bao gồm cả width và height 
+    size-thông số do tailwind quy định -> vd : size-32 : chiều rộng cao 32px * 4 = 128px kích thước khối
+    size-full -> width và height chiếm 100% thẻ cha 
+    size-auto -> width vầ heigh chiếm kích thước dựa vào thuộc tính của khối -->
+
+    <!-- size-32 -> cả width và height đều có kích thước bằng nhau 32 * 4 = 128px -->
+    <div class="size-32 bg-black mt-5">alo</div>
+
+    <!-- khối cha : w-50 -> width 50 * 4 = 200px
+      h-30 -> height 30 * 4 = 120px-->
+    <div class="w-50 h-30 bg-black text-pink-200" >
+        <!-- khối con : size-full -> width , height có kích thước = 100% kích thước của khối cha -->
+        <div class="size-full bg-blue-500 mt-5 opacity-50"></div>
+    </div>
+    
+    <div class="w-50 bg-black">400</div>
+    
+    </body>
+</html>
