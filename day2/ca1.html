@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../src/output.css" />
+        <title>Day2</title>
+    </head>
+    <body>
+    <!-- min-width và max-width , min-height và max-height 
+min-width : chiều rộng tối thiểu  -> khi phần tử bị co lại giữ chiều rộng mức tối thiểu không co lại hơn chiều rộng quy định ban đầu
+max-width : chiều rộng tối đa -> khi phần tử dãn ra giữ mốc tối đa của chiều rộng không dãn hơn chiều rộng quy định ban đầu -->
+
+    <!-- container : chiều rộng của phần tử được dựa vào khung nhìn màn hình 
+    khi khung nhìn > sm > 640  -> phần tử cách lề 1 khoảng nhất định 
+    - mx-auto : margin hai bên trái phải cách đều nhau
+    - text-2xl : độ lớn của chữ -->
+    <h1
+        class="container mx-auto text-center text-white text-2xl p-3 bg-green-500"
+    >
+        min max - width và height
+    </h1>
+
+    <!-- min-w-100 : kích thước tối thiểu cố định của phần tử = 100 * 4 = 400px -> khi khung nhìn thu nhỏ lại
+        phần tử này sẽ thu ở vị trí tối thiểu là 400px và không thể giảm nữa  -->
+    <div class="min-w-100 bg-red-500">alo</div>
+    <!-- max-w-40 : kích thước tối đa cố định của phần tử = 40 * 4 = 160px -> khi khung nhìn dãn ra 
+        phần tử này sẽ dãn ra tối đa là 160px và không thể tăng chiều rộng được nữa -->
+    <div class="max-w-40 bg-blue-500">alo</div>
+    <!-- w-32 : chiều rộng cố định 32 * 4 = 128px -->
+    <div class="w-32 bg-red-500">alo</div>
+    <!-- tương tự min và max width thì min và max height cũng như vậy -->
+
+<!-- cách sử dụng những thuộc tính tùy chỉnh không có trong tailwind :
+cách 1 : tạo file config.js -> cách của tailwind version 3
+cách 2 (của tailwind version 4) :  -> B1 : khai báo lên file input.css   
+-> B2 : khai báo các thuộc tính bên trong khối @theme{} 
+-> B3 : khai báo các biến mang thuộc tính được quy định với giá trị tùy chọn (vd : --color-tên biến : mã màu)
+-> B4 : sử dụng thuộc tính mang giá trị đó bằng cách gọi tên biến
+-->
+    <!-- thêm những biến mang giá trị có thể tái sử dụng bằng cách thêm các biến đó bên file input.css
+    -> thêm vào khối @theme{} những biến của thuộc tính mang giá trị không được định nghĩa ở tailwind -->
+    <h3 class="bg-moi1">alo</h3>
+    <h3 class="bg-moi3">alo</h3>
+
+    <!-- position -->
+    <h1 class="bg-green-500 text-center p-3 text-2xl text-white mt-2">
+        position
+    </h1>
+    <!-- static : mặc định  -->
+    <!-- relative : vị trí tương đối -> vẫn chiếm vị trí trong layout có thể thay đổi vị trí = top , bottom .. -->
+    
+    <div class="size-20 bg-black">alo</div>
+    <!-- size-15 -> width và heigh = 15 * 4 = 60px
+    relative -> vị trí tương đối  -->
+    <div class="size-15 relative bottom-5 bg-pink-500">alo</div>
+
+    <!-- absolute : vị trí tuyệt đối -> không chiếm vị trí trong layout căn vị trí theo phần tử cha có position relative -->
+
+    <!--relative : khối mang vị trí này được khối con mang vị trí absolute căn theo -->
+    <div class="bg-moi2 relative size-20">
+        <!-- absolute , bottom-0 : cách phía dưới 0px , right-0 : cách bên phải 0 px -->
+        <div class="size-10 bg-pink-400 bottom-0 right-0 absolute"></div>
+    </div>
+
+    <!-- fixed : vị trí cố định -> không chiếm vị trí trong layout căn vị trí theo viewport -> khi khung nhìn thay đổi vị trí sẽ cố định theo khung nhìn -->
+
+    <!-- fixed : vị trí cố định -> phù hợp làm thanh nav -->
+    <div class="bg-pink-900 rounded-3xl p-2 fixed right-0 z-10">alo</div>
+
+    <!-- sticky : dán cố định -> chiếm vị trí trong layout -> khi khung nhìn thay đổi vị trí sẽ cố định theo khung nhìn -->
+
+    <div class="bg-pink-200 rounded-3xl p-2 sticky top-0">alo</div>
+
+    <!-- inset : căn top , left , right , bottom chỉ = 1 thuộc tính -->
+
+<!-- z-index : dùng cho các phần tử có position : relative , absolute , fixed , sticky 
+- xếp các phần tử theo thứ tự -> phần tử nào có z-index > hơn thì đè lên các phần tử có z-index nhỏ hơn 
+- cú pháp : z- thứ tự xếp chồng -->
+
+    <div class="bg-moi2 size-25 relative">
+        <!-- z-10: z-index:10 phần tử này > z-2 nên phần tử này sẽ có thể đè lên phần tử kia  -->
+        <div class="absolute top-5 left-5 bg-blue-300 z-10 size-10"></div>
+        <div class="absolute top-10 left-10 bg-red-300 z-2 size-10"></div>
+    </div>
+
+    <!-- display : block , inline , inline-block , none -->
+
+    <h1 class="bg-green-500 text-center p-3 text-2xl text-white mt-2">
+        display
+    </h1>
+    <!-- block : chiếm 100vw chiều rộng vàa có thể điều chỉnh kích thước  -->
+    <div class="bg-black size-20 block mt-2"></div>
+
+    <!-- inline : chiếm chiều rộng = phần content và kh điều chỉnh được kích thước -->
+    <div class="inline bg-moi2 mt-2">2020 và tao nổi như hiện tượng</div>
+
+    <!-- inline-block : chiếm chiều rộng = phần content và  điều chỉnh được kích thước -->
+    <div class="inline-block w-25 bg-black mt-2 text-white">alo lo</div>
+
+    <!-- float và clear 
+- float : đẩy phần text xung quanh một bức ảnh dựa vào hướng của float -> hầu hết dùng cho thẻ img
+->  float-left , float-right , float-none ..  
+- clear : xóa bỏ thuộc tính float khỏi phần tử đang bị ảnh hưởng bởi float -> phần tử sẽ xuống hàng mới
+-> clear-left , clear-right , clear-both .. -->
+
+
+        <div>
+        <!-- w-1/2 : chiều rộng = 50% phần tử cha -->
+        <div class="w-1/2 float-left">
+            <!-- w-full -> chiều rộng của ảnh = 100% chiều rộng của phần tử cha -->
+            <img
+            class="w-full"
+            src="../img/Ảnh chụp màn hình 2024-10-09 234504.png"
+            alt=""
+            />
+        </div>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed corporis
+            harum fugiat? Ducimus maiores obcaecati id in aspernatur eum sequi! Odio
+            adipisci exercitationem aperiam quis aspernatur quos et culpa dolores.
+            Est minus nobis eius quidem ex, libero eaque magni eum debitis repellat
+            accusamus eos facilis dolorum earum facere. Deserunt asperiores, sequi
+            atque vel vero iure nostrum placeat commodi excepturi illum! Provident
+            incidunt consequatur quis dolorem odit hic pariatur, tenetur et
+            doloribus. Non ipsa repudiandae earum optio necessitatibus explicabo ut,
+            rerum, sit ipsam, mollitia magni laudantium sint ex reprehenderit
+            voluptate similique! Numquam, magni, officia unde eos commodi deleniti
+            nesciunt veniam quos est esse dolore temporibus consequuntur eligendi!
+            Non quod aspernatur, laudantium eligendi distinctio quibusdam voluptate
+            magni officiis deserunt exercitationem recusandae quam. Rerum numquam
+            explicabo voluptates odio dignissimos quasi porro. Facilis temporibus et
+            odio consequatur praesentium debitis reprehenderit fugit quas ea
+            impedit, consequuntur dolorum suscipit aliquid magni rerum molestias,
+            minima repudiandae nam! Incidunt, id. Reiciendis, sint voluptas maxime
+            architecto amet pariatur! Quod eveniet aut laudantium, architecto in
+            dolore cumque dolorum, fugiat eligendi quaerat, totam maxime illum rem
+            non eius ipsum voluptatum incidunt. Temporibus tempora nostrum unde
+            atque maxime ad, amet consectetur deleniti eos libero. Numquam, illum
+            eum ab quos quam minima quo quis ex impedit quae placeat perspiciatis
+            
+        </p>
+        <p class="bg-blue-300 clear-left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, odit.</p>
+        </div>
+    
+<!-- border : viền của một phần tử -->
+        <h1 class="bg-green-500 text-white text-center p-3 text-2xl mt-3">border</h1>
+
+        <!-- border-radius : làm tròn viền -> có thể sử dụng các từ khóa chỉ kích thước
+        vd : rounded-sm , rounded-lg .. -> rounded-full : bo tròn tối đa 
+        -> rounded-none : không bo tròn -->
+
+        <div class="size-20 boder rounded-sm bg-black mt-2"></div>
+
+        <!-- border-width : kích thước của viền -> có thể sử dụng nhiều thuộc tính để miêu tả kích thước của viền -->
+
+        <div class="size-20 border-5 border-blue-200 bg-pink-500 mt-2 rounded-full"></div>
+
+        <!-- border-color : màu sắc của viền  -->
+        <h1 class="inline border-3 border-red-700 bg-blue-300 rounded-full p-3 ">phần tử này là một viên thuốc</h1>
+
+        <!-- border-style : phong cách của viền -> các phong cách nổi bật : solid , dotted , dashed , double , none -->
+
+        <div class="size-20 border-5 border-dashed border-blue-200 bg-pink-500 mt-2 rounded-full"></div>
+
+<!-- thêm responsive
+        lg:border-blue-600 -> khi màn hình > lg > 1024 : màu viền màu xanh
+        border-red-500 -> khi màn hình < 1024 : màu viền đỏ
+        md:border-solid -> màn hình > 768 : kiểu viền solid
+        border-dashed -> màn hình < 768 : kiểu viền dashed
+        size-20 -> kích thước của phần tử width = height = 20 * 4 = 120px
+        rounded-full -> bo viền của khối thành hình tròn 
+        border-5 -> độ dày của viền là 5 -->
+        <div class="border-5  lg:border-blue-600 border-red-500 md:border-solid border-dashed size-20 rounded-full bg-pink-700"></div>
+    </body>
+</html>
