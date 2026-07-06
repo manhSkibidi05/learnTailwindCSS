@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <title>Document</title>
+</head>
+<body class="font-ultra">
+<!-- outline : cung cấp viền ngoài cho phần tử mà không can thiệp vào kích thước của phần tử
+    -> khác với border làm tăng kích thước phần tử -> outline khi được thêm vào làm cho viền ngoài của phần tử..
+    -> một số các thuộc tính : outline-width , outline-color , outline-offset , outline-style -->
+
+    <!-- text-center : căn phần nội dung ra giữa -->
+    <h1 class="text-center text-2xl bg-green-500 text-white py-3">outline</h1>
+    <!-- outline-2 : độ lớn của viền , outline-pink-300 : màu sắc của viền 
+        outline-offset-2 : tăng khoảng cách của phần tử với viền 
+        -> outline : không can thiệp vào kích thước phần tử   -->
+    <div class="m-5 outline-2 outline-pink-300 outline-dashed outline-offset-2 size-20 bg-black"></div>
+
+    <!-- so sánh border và  outline  -->
+        <!-- hover:outline-5 -> khi hover vào phần tử này viền của phần tử tăng lên 5  -->
+    <button class="size-20 bg-pink-200 hover:outline-5 ">pick me </button>
+    <span>đây là thẻ span</span>
+    <!-- hover:border-10 -> khi hover vào phần tử viền border tăng lên 10 làm tăng kích thước của phần tử -->
+    <button class="size-20 bg-red-200 hover:border-10">pink me</button>
+    <span>đây là thẻ span</span>
+    <br>
+
+<!-- hover , active , focus , group-hover 
+    - hover : khi di chuột qua 1 phần tử 
+    - active : khi click chuột vào 1 phần tử
+    - focus : khi tác động vào ô nhập liệu của thẻ input trong form
+    - group-hover : khi hover cho phần tử cha nhưng tác động vào cả các phần tử con trong đó  -->
+
+    <h1 class="text-center text-2xl bg-green-500 text-white py-3"> hover , focus , active và group-hover... </h1>
+    <!-- hover  -->
+        <!-- hover:bg-green-400/50 -> hover vào thay đổi màu nền 400/50 thêm 50% opacity  -->
+    <button class="bg-green-400 oultine-none py-2 px-5 rounded-full hover:bg-green-400/50 ">Click me</button>
+
+    <!-- active -->
+        <!-- active:outline-5 -> khi phần tử được click thì viền sẽ xuất hiện  -->
+    <button class="bg-red-500  py-2 px-5 rounded-full active:outline-5 active:outline-red-600 outline-offset-2">click you</button>
+
+    <!-- focus  -->
+        <!-- focus:outline-pink-900 -> khi nhập liệu vào ô input thì xuất hiện viền có màu hồng -->
+    <input class="bg-pink-200 px-2 py-2 rounded-full focus:outline-pink-900" type="text" placeholder="typing something...">
+
+    <!-- group-hover -->
+        <!--  để có thể sử dụng sự kiện group-hover : các phần tử trong khối group 
+        -> các phần tử thay đổi sẽ sử dụng group-hover thay vì hover 
+        -> khi hover vào khối group thì các phần tử con cũng sẽ thay đổi theo -->
+    <div class="group hover:bg-pink-500 bg-pink-400 size-50 mt-3 rounded-2xl p-2">
+        <h1 class="text-white group-hover:text-black">oh baby girl yah yah give me your luv đó là phần quà</h1>
+        <input class="bg-white border-2 group-hover:bg-black border-gray-200 outline-none rounded-full" type="email" name="" id="">
+        <button class="bg-white outline-none p-2 rounded-full group-hover:bg-black"> baby no cry</button>
+    </div>
+    <!-- tương tự như vậy group cũng có thể kết hợp với các lớp giả khác như hover , active , focus ... -->
+    <div class="group active:bg-pink-500 bg-pink-400 size-50 mt-3 rounded-2xl p-2">
+        <h1 class="text-white group-active:text-black">oh baby girl yah yah give me your luv đó là phần quà</h1>
+        <input class="bg-white border-2 group-active:bg-black border-gray-200 outline-none rounded-full" type="email" name="" id="">
+        <button class="bg-white outline-none p-2 rounded-full group-active:bg-black"> baby no cry</button>
+    </div>
+
+<!-- cursor : phong cách của chuột khi hover vào 1 phần tử nhất định
+- một số loại cursor mà hay dùng : cursor:pointer , cursor:progress , cursor : not-allowed -->
+        
+    <h1 class="text-center text-2xl bg-green-500 text-white py-3"> cursor </h1>
+
+    <!-- cursor : pointer -> hiện thị hình bàn tay khi di chuột qua 
+    -> thường dùng cho nút nhấn hoặc đường dẫn -->
+
+    <!-- cursor-pointer : hiện thị hình bàn tay -> có thể click được phần tử này -->
+    <button class="bg-pink-400 rounded-full py-2 px-5 mt-5 cursor-pointer ">va mos</button>
+
+    <!-- cursor : progress -> hiện thị tiến trình đang tải khi di chuột qua -->
+
+    <!-- cursor-progress -> hiện thị bàn tay loading  -->
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-progress ">va mos</button>
+
+    <!-- cursor : not-allowed -> hiển thị lệnh cấm khi di chuột qua -->
+
+    <!-- cursor-not-allowed -> hiện thị biển cấm -> biểu thị phần tử này bị vô  hiệu hóa -->
+    <button class="bg-green-400 rounded-full py-2 px-5 mt-5 cursor-not-allowed text-white  ">va mos</button>
+
+    <!-- ngoài ra còn rất nhiều các phong cách khác -->
+    
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-help ">va mos</button>
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-grab ">va mos</button>
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-copy ">va mos</button>
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-crosshair ">va mos</button>
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-wait ">va mos</button>
+    <button class="bg-blue-400 rounded-full py-2 px-5 mt-5 cursor-cell ">va mos</button>
+
+<!--  typography  : kiểu dáng , phong cách của chữ
+
+    - font-family : kiểu chữ , một số kiểu có sẵn trong tailwind : sanserif , serif , roboto 
+    -> muốn nhúng font từ google vào tailwind : 
+    b1 : import phần font bạn muốn thêm vào file input.css
+    b2 : khai báo biến font và tên biến để gọi ra 
+    b3 : với mỗi biến khai báo giá trị font dựa trên tên form được quy định bởi google 
+    b4 : gọi biến đó trong font và sử dụng -->
+
+    <h1 class="text-center text-2xl bg-green-500 text-white py-3"> typography </h1>
+    
+    <!-- cài đặt font chữ mới tùy chỉnh tử google giống như thêm 1 giá trị của 1 thuộc tính có sẵn
+    như color .. . 
+        - b1 : chúng ta phải tìm kiếm font chữ do khách hàng yêu cầu 
+        - b2 : import những loại font chữ đó vào file input.css 
+        - b3 : khai báo biến vào khối @theme{} dựa trên thuộc tính có sẵn
+        - b4 : gán những giá trị mới mà không được tailwind định nghĩa vào biến phù hợp 
+        - b5 : sử dụng giá trị đó thông qua tên biến mà đã khai báo  -->
+    <h1 class="font-roboto text-2xl">đây là phần tiêu đề để thử nghiệm font family</h1>
+    <h1 class="font-ultra text-2xl">đây là phần tiêu đề để thử nghiệm font family</h1>
+    <h1 class="font-moi4 text-2xl">đây là phần tiêu đề để thử nghiệm font family</h1>
+
+<!-- còn rất nhiều các thuộc tính có trong typography : font-size , font-style , ... -->
+
+</body>
+</html>
