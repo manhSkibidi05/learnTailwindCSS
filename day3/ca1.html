@@ -1,0 +1,185 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../src/output.css">
+        <title>ca1</title>
+    </head>
+    <body>
+<!--background-images : thêm hình nền vào khối nhất định thông qua bg-images
+    - cú pháp : thêm class vào khối cần thiết bg-[url(đường dẫn ảnh)] 
+    - ngoài ra thêm được màu chuyển sắc thông qua bg 
+    cách 1 : -> bg-linear-to-hướng ->  mà màu from đến màu to 
+    cách 2 : -> bg-linear-65 -> hướng 65 độ màu from đến màu to-->
+        
+        <!-- text-center : căn phần nội dung ra giữa khối 
+         text-xl : tăng kích thước của phần nội dung
+         p-3 : padding 3 * 4 = 12 px cả 4 hướng  
+         text-white : màu chữ trắng -->
+        <h1 class="text-center text-xl text-white bg-green-500 p-3">background-images</h1>
+        
+        <!-- background-images : màu nền đặt trong đường dẫn url-->
+
+        <!-- cách dùng background-images lầ : bg-[url(đường dẫn ảnh)] 
+          -> đặt đường dẫn ảnh trong dấu ngoặc đơn và url trong dấu ngoặc vuông theo quy định của tailwind 
+          w-screen : chiều rộng của phần tử = 100 vw = chiều rộng của khung nhìn 
+          h-10 : chiều cao của phần tử == 10 * 4 = 40px -->
+        <div class="bg-[url(../img/abc.jpg)] w-screen h-10">ad</div>
+ 
+        <!-- background-linear  -->
+
+        <!-- bg-linear-to-r : dùng màu chuyển sắc chuyển từ trái sang phải , from-black : bắt đầu từ màu đen
+         to-white : kết thúc là màu trắng -> chuyển sắc dần từ đen sang trắng hướng từ trái sang phải  -->
+        <div class="bg-linear-to-r from-black to-white size-30 mt-3"></div>
+
+        <!-- bg-linear-to-t : màu chuyển sắc từ dưới lên trên from-black : màu bắt đầu từ đen 
+         to-white : chuyển dần sang màu trắng -->
+        <div class="bg-linear-to-t from-black to-white size-30 mt-3"></div>    
+
+        <!-- bg-linear-60 : màu chuyển sắc hướng 60 độ from-purple : từ màu tím 
+         via-red-300 : màu đỏ ở giữa  to-pink-500 : rồi chuyển dần sang màu hồng 
+         w-screen : chiều rộng của phần tử 100vw = chiều rộng của khung nhìn 
+         h-10 : chiều cao của phần tử -->
+        <span class="inline-block bg-linear-60 from-purple-500 via-red-300 to-pink-500 w-screen h-10"></span>
+
+<!-- các thuộc tính khi sử dụng background-images  -->
+
+        <h1 class="text-center text-xl text-white bg-green-500 p-3">các thuộc tính hỗ trợ background-images</h1>
+
+<!-- background-repeat : sự lặp lại của ảnh nền
+         -cú pháp : bg-repeat(mặc định) -> ảnh có thể lặp lại
+         bg-no-repeat(khuyên dùng) -> ảnh không lặp lại nhưng sẽ chỉ có kích thước không bằng kích thước ban đầu
+          -->
+        <!-- bg-no-repeat : giúp cho ảnh nền không bị lặp lại khi kích thước của ảnh khác với kích thước của khối -->
+        <div class="bg-[url(../img/abc.jpg)]  bg-no-repeat size-50 mt-3 bg-amber-100">ad</div>
+
+<!-- background-size : căn chỉnh kích thước ảnh 
+         - cú pháp : bg-auto -> hình nền hiện thị kích thước mặc định
+         bg-contain -> hình nền hiện thị đầy đủ kích thước nhưng sẽ không lấp đầy kích thước khối
+         bg-cover (khuyên dùng ) -> hình nền cố gắng hiện thị full kích thước của khối có thể gây mất ảnh... -->
+
+         <!-- bg-contain : giúp hiện thị đầy đủ ảnh nền -> nhưng khi kích thước của phần tử không đủ 
+          sẽ bị thừa -->
+        <div class="bg-[url(../img/abc.jpg)]  bg-no-repeat bg-contain size-50 mt-3 bg-amber-100">ad</div>
+         <!-- bg-cover : giúp cho hình nền sẽ vừa với khối chứa nó -> tuy nhiên sẽ có thể gây ra mất ảnh và làm thiếu mất phần ảnh -->
+        <div class="bg-[url(../img/abc.jpg)]  bg-no-repeat bg-cover size-50 mt-3 bg-amber-100">ad</div>            
+
+<!-- background-position : vị trí bắt đầu hiện của ảnh 
+         - cú pháp : bg- thuộc tính chỉ vị trí (top , bottom , right ...)
+         - bg-center (khuyên dùng ) -> vị trí xuất hiện ảnh là ở giữa khối-->
+
+         <!-- bg-center : vị trí xuất hiện của ảnh sẽ được ở giữa khối chứa nó -> thuộc tính này sẽ thường được sử dụng -->
+        <div class="bg-[url(../img/abc.jpg)]  bg-no-repeat bg-cover bg-center size-50 mt-3 bg-amber-100">ad</div>
+        <!-- bg-bottom : vị trí bắt đầu xuất hiện của ảnh sẽ ở dưới của khối -> thuộc tính này sẽ không thường xuyên được sử dụng -->
+        <div class="bg-[url(../img/abc.jpg)]  bg-no-repeat bg-cover bg-bottom size-50 mt-3 bg-amber-100">ad</div>
+
+<!-- background-attachment : các tiện ích điều khiển hình nền khi cuộn trang 
+         -> bg-scroll (mặc định) : khi cuộn nội dung ảnh sẽ cuộn theo -->
+
+         <!-- bg-scroll : trạng thái mặc định đối với 1 ảnh nền khi cuộn trang thì phần ảnh này sẽ cuộn theo trang -->
+        <div class="bg-[url(../img/humg2.png)] w-screen height-20 bg-scroll bg-no-repeat bg-cover bg-center  mt-3 bg-amber-100">
+            lorem20
+        </div>
+
+        <!-- bg-fixed -> vị trí ảnh cố định dù có cuộn xuống 
+         -> trạng thái này giúp cho hình nền sẽ giữ cố định vị trí nhưng khi kéo qua sẽ bị các phần tử khác đè lên  -->
+        <div class="bg-[url(../img/humg2.png)] w-screen height-20 bg-s bg-no-repeat bg-cover bg-center  mt-3 bg-amber-100">
+            lorem20
+        </div>
+
+        <!-- bg-local -> vị trí ảnh  sẽ cuộn theo đoạn text nằm trong khối chứa ảnh nền đó 
+         -> trạng thái xảy ra khi ảnh không hiển thị hết ở khung nhìn ban đầu khi cuộn lên sẽ hiện thị nốt phần ảnh còn thiếu đó-->
+        <div class="bg-[url(../img/humg2.png)] w-screen height-20 bg-scroll bg-no-repeat bg-cover bg-center  mt-3 bg-amber-100">
+            lorem20
+        </div>
+
+<!-- background-clip : điều khiển vùng hiển thị của  nền đối với 1 phần tử  -->
+
+        <!-- bg-clip-border(mặc định) : hiện thị nền từ phần border vào -->
+
+        <!-- bg-clip-border : hình nền sẽ hiện thị từ phần border của phần tử đổ vào -->
+        <div class="bg-linear-60 from-purple-500 via-red-300 to-pink-500 bg-clip-border size-20 border-3 border-dashed mt-3"> văn bản</div>        
+
+        <!-- bg-clip-padding : hiện thị nền từ phần padding vào-->
+
+        <!-- bg-clip-padding : hình nền bắt đầu hiện thị từ phần padding của phần tử đổ vào  -->
+        <div class="bg-linear-60 from-purple-500 via-red-300 to-pink-500 bg-clip-padding size-20 border-3 border-dashed mt-3">văn bản</div>        
+
+        <!-- bg-clip-content : hiện thị nền đủ phần content -->
+
+        <!-- bg-clip-content : hình nền chỉ hiện thị đủ để bao bọc phần content -> giống như là thẻ đang mang trạng thái là inline -->
+        <div class="bg-linear-60 from-purple-500 via-red-300 to-pink-500 bg-clip-content size-20 border-3 border-dashed mt-3">
+            văn bản
+            <p>văn bản</p>
+        </div>        
+
+        <!-- bg-clip-text : hiện thị phần nền vào phần text  -> phải sử dụng text-transparent : trong suốt màu của đoạn text
+         -> màu của bg-clip-text sẽ kế thừa vào màu text đang trong suốt -> tạo ra text màu chuyển sắc -->
+
+         <!-- bg-linear-60 : màu chuyển sắc chuyển đến hướng 60 độ 
+          bg-clip-text : màu nền sẽ chỉ hiện thị vào phần text -> màu của text
+          text-transparent : trước khi hiện thị được màu của bg -> điều chỉnh màu của text về trong suốt   -->
+        <div class="bg-linear-60 from-purple-500 via-red-300 to-pink-500 bg-clip-text text-transparent text-5xl size-20 border-3 border-dashed mt-3">văn bản</div>        
+
+<!-- box-shadow và text-shadow : đổ bóng vào 1 khối hoặc 1 đoạn text bất kì -->
+        
+
+        <h1 class="text-center text-xl text-white bg-green-500 p-3">box shadow và text shadow</h1>
+
+        <!-- box shadow : phần bóng hiển thị của 1 khối bao gồm 5 giá trị : trục x , trục y , độ mờ , độ rộng , màu
+        -> trong tailwind đã có sẵn 1 số loại đổ bóng : shadow-xs , shadow-md , shadow-lg ...
+        -> người dùng cũng có thể tạo riêng tùy chỉnh bóng -> tạo biến mới bên input.css khối @theme{} -->
+
+        <!-- shadow-lg : điều chỉnh cho khối thêm bóng mức độ lg 
+         shadow-pink-500 : màu của bóng -->
+        <div class="size-30 m-3 rounded bg-linear-60 from-purple-500 to-pink-500 shadow-lg shadow-pink-500"></div>
+
+        <!-- shadow-moi5 : sử dụng bóng được tùy chỉnh bên file input.css , trong khối @theme -->
+        <div class="size-30 m-3 rounded bg-black shadow-moi5"></div>
+
+        <!-- inset-shadow-sm : thêm bóng cuộn vào trong của khối
+         inset-shadow-pink-800 : thêm màu của bóng cuộn vào trong của khối -->
+        <div class="size-30 m-3 rounded bg-amber-200 inset-shadow-sm inset-shadow-pink-800"></div>
+        
+        <!-- text-shadow : phần đổ bóng cho đoạn text 
+         -> cũng giống như box-show cũng có các loại bóng được thiết lập sẵn : text-shadow-xs ,text-shadow-sm.. 
+         -> người dùng cũng có thể tạo riêng tùy chỉnh cho text-shadow -->
+
+        <!-- text-shadow-lg : thêm bóng của phần text 
+         text-shadow-pink-900 : thêm màu bóng của phần text đó -> màu hồng -->
+        <h1 class="text-5xl text-shadow-lg text-shadow-pink-900 text-pink-500">Đây là đoạn văn bản có text shadow ví dụ</h1>
+
+        <!-- text-shadow-lg : thêm bóng cho phần text
+         text-shadow-black : thêm màu bóng cho phần text đó -> màu đen  -->
+        <h1 class="text-5xl text-shadow-lg text-shadow-black text-pink-500">Đây là đoạn văn bản có text shadow ví dụ</h1>
+
+        <!-- opacity : tiện ích kiểm soát độ mờ của phần tử 
+         - cú pháp : opacity-<number> -> số càng thấp độ mờ càng tăng 
+         - chỉ tác động lên sự hiện thị của phần tử , phần tử vẫn chiếm vị trí trong layout
+        -->
+
+        <!-- opacity : độ mờ của phần tử -> tác động lên mức độ hiện thị của phần tử trên trang web 
+         -> phần tử vẫn chiếm vị trí trong layout  -> vẫn có thể tương tác chỉ không nhìn thấy được   -->
+        <button class="bg-blue-400 outline-none rounded-full py-2 px-4 cursor-wait opacity-25 disabled:cursor-not-allowed" >click me</button>
+
+        <!-- thêm responsive với opacity -->
+
+        <!-- bg-red-500: màu nền đỏ 
+         outline-none : viền ngoài không có
+         rounded-full : bo tròn tất cả viền của phần tử
+         py-2 : padding trên dưới 2 * 4 = 8 px
+         px-4 : padding trái phải 4 * 4 = 16 px 
+         cursor-crosshair : lúc này khi hover vào phần tử sẽ hiện thị hình tâm nhắm chứ không phải hình con chuột
+         md:opacity-100 -> khi màn hình > md > 768 : phần tử này sẽ được hiện thị 100 không bị làm mờ 
+         opacity-0 -> màn hình < md < 768 : phần tử này sẽ làm mờ không hiện thị lên trang web 
+         -->
+       
+       
+          <button class="bg-red-500 outline-none rounded-full py-2 px-4 cursor-crosshair md:opacity-100 opacity-0">Click me</button>
+        
+        <!-- hầu hết các tiện ích được tailwind cung cấp thì đều có thể thêm được responsive vào để có thể hỗ trợ cho giao diện trên thiết bị 
+         di động và ipad chỉ cần sử dụng các giá trị như sm , md , lg , xl , 2xl sau đó là dấu : rồi đến thuộc tính
+         cần phải responsive trên nhiều màn hình khác nhau -->
+        </body>
+    </html>
