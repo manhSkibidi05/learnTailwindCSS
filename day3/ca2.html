@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <title>Ca2</title>
+</head>
+<body>
+<!-- flex-box  -->
+<!-- tổng quan -->
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">display : flex</h1>
+
+    <!-- flex : giúp khối luôn ở trạng thái flex dễ dàng điều chỉnh vị trí bên trong các phần tử con 
+     container : khối này cách lề 1 khoảng khi kích thước màn hình > sm > 640 
+     h-15 : chiều cao của khối 15 * 4 = 60 px 
+       -->
+    <div class="container flex h-15  bg-blue-300 gap-2">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+<!-- justify-content và align-items  -->
+
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">Justify-content và align-items</h1>
+
+    <!-- justify-content : điều chỉnh vị trí và khoảng cách của các phần tử theo trục x nằm trong khối flex -->
+    <!-- justify-end : căn vị trí các phần tử theo trục x -> đẩy về cuối trục x   -->
+    <div class="container flex h-15  bg-blue-300 mt-2 justify-end ">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+    <!-- justify-between : các phần tử căn vị trí theo trục x -> không cách lề các phần tử cách nhau 1 khoảng bằng nhau -->
+    <div class="container flex h-15  bg-blue-300 mt-2 justify-between ">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+    <!-- justify-evenly : các phần tử cách lề và cách nhau 1 khoảng bằng nhau và bằng cách lề -->
+    <div class="container flex h-15  bg-blue-300 mt-2 justify-evenly ">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+    <!-- align-items : điều chỉnh vị trí và khoảng cách các phần tử theo trục y nằm trong khối flex-->
+
+    <!-- items-stretch : thuộc tính mặc định nó sẽ giãn chiều cao của phần tử hết ra khối chứa nó -->
+    <div class="container flex h-15  bg-blue-300 mt-2 items-stretch ">
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+    </div>
+
+    <!-- items-end : các phần tử được căn hết về hướng end của trục y và các phần tử sẽ không chiếm hết chiều cao của khối chứa nó -->
+    <div class="container flex h-15  bg-blue-300 mt-2 items-end ">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+    <!-- justify-center : căn các phần tử con ra giữa theo trục x
+     items-center : căn các phần tử con ra giữa theo trục y -->
+    <div class="container flex h-15  bg-blue-300 mt-2 justify-center items-center ">
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+        <div class="bg-pink-200 size-10 border-2 rounded "></div>
+    </div>
+
+<!-- flex-wrap và align-content -->
+
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">flex-wrap và align-content</h1>
+
+    <!-- flex-wrap : khi khối flex không đủ chỗ chứa cho các phần tử trên 1 hàng -> sẽ xuống hàng mới
+     -> flex-nowrap : trạng thái mặc định sẽ không xuống hàng mới -> cố chấp hàng cũ -->
+
+     <!-- flex-wrap : cho phép các phần tử xuống hàng mới khi chiều rộng của khối không đủ chỗ chứa các phần tử con trên 1 hàng
+       -->
+    <div class="container flex h-30 w-130 bg-blue-300 mt-2 items-start flex-wrap">
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+    </div>
+
+    <!-- align-content : căn chỉnh vị trí các phần tử theo trục y -> trong trường hợp nhiều phần tử và xuống dòng -->
+
+    <!-- content-center : căn vị trí các phần tử con ra giữa theo trục y -> dùng thuộc tính này khi có nhiều phần tử bắt buộc xuống hàng mới
+        -->
+    <div class="container flex h-30 w-130 bg-blue-300 mt-2 content-center flex-wrap">
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 123 flex</div>
+    </div>
+
+<!-- flex-direction : thay đổi hướng của các phần tử nằm trong khối flex -->
+
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">flex-direction</h1>
+
+    <!-- flex-row(mặc định) :  x từ trái sang phải , y từ trên xuống dưới  -->
+    <!-- flex-row-reverse : đổi trục x từ phải sang trái , y vẫn thế  -->
+
+    <!-- flex-row-reverse : đổi chiều của trục x ngược lại so với ban đầu 
+     -> start ở bên phải và end ở bên trái  -->
+     <div class="container flex h-15 w-130 bg-blue-300 mt-2 flex-row-reverse">
+        <div class="bg-pink-200  border-2 rounded ">alo 1</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 2</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 3</div>
+    </div>
+
+    <!-- flex-col : đổi trục x từ trên xuống dưới , đổi trục y từ trái sang phải -->
+    <!-- flex-col : đổi trục x và y với nhau -->
+    <div class="container flex h-15 w-130 bg-blue-300 mt-2 flex-col">
+        <div class="bg-pink-200  border-2 rounded ">alo 1</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 2</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 3</div>
+    </div>
+
+    <!-- flex-col-reverse : đổi trục x từ trên xuống dưới , đổi trục y từ phải sang trái -->
+
+    <div class="container flex h-15 w-130 bg-blue-300 mt-10 flex-col-reverse">
+        <div class="bg-pink-200  border-2 rounded ">alo 1</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 2</div>
+        <div class="bg-pink-200  border-2 rounded ">alo 3</div>
+    </div>
+
+<!-- align-self -->
+
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">align-self</h1>
+
+    <!-- align-self : tác động trực tiếp vào phần tử con nằm trong khối flex 
+     -> giống align-items : tác động các phần tử con theo trục y nhưng chỉ tác động vào phần tử được chỉ định không tác động tất cả các phần tử con nằm trong khối flex đó 
+    -->
+
+    <div class="container flex h-30 w-130 justify-between bg-blue-300 mt-2  ">
+        <!-- self-end : căn cho chính phần tử này về phần end của trục y  -->
+        <div class="bg-pink-200  border-2 rounded  self-end">alo 123 flex</div>
+        <!-- self-start ; căn cho chính phần tử này về phần start của trục y-->
+        <div class="bg-pink-200  border-2 rounded  self-start">alo 123 flex</div>
+        <!-- self-center : căn cho chính phần tử này về phần giữa của trục y  -->
+        <div class="bg-pink-200  border-2 rounded  self-center">alo 123 flex</div>
+        <!-- giữ nguyên thuộc tính -> chiếm phần còn lại chiều cao của khối -->
+        <div class="bg-pink-200  border-2 rounded  ">alo 123 flex</div>
+    </div>
+
+<!-- flex-grow  -->
+
+    <h1 class="text-center text-2xl text-white p-2 bg-green-500 mb-3">align-self</h1>
+
+    <!-- flex-grow : tác dụng cho phần tử con nằm trong khối flex 
+     -> các phần tử có thuộc tính này sẽ có thể giãn ra để chiếm hết khoảng trống còn thừa
+     -> dãn ra theo chiều rộng của phần tử cha nếu còn chỗ chứa 
+     -> có thể thêm các trọng số sau grow -> trọng số lớn chiếm nhiều hơn -->
+
+    <!--  -->
+    <div class="container flex h-15 w-screen items-start bg-blue-300 mt-2  ">
+        <!-- grow : cho phép phần tử này dãn ra chiếm hết chiều rộng của khối chứa nó-->
+        <div class="bg-pink-200  border-2 rounded grow  ">alo 123 flex</div>
+        <!-- grow-2 : cho phép phần tử này dãn ra chiếm hết chiều rộng của khối chứa nó nhưng chiếm nhiều hơn những phần tử có chỉ số grow thấp hơn nó -->
+        <div class="bg-pink-200  border-2 rounded grow-2 ">alo 123 flex</div>
+        <!-- grow-3 : cho phép phần tử này dã ra chiếm hết chiều rộng khối chứa nó nhưng phần tử nào có chỉ số grow lớn hơn sẽ chiếm nhiều chiều rộng hơn -->
+        <div class="bg-pink-200  border-2 rounded grow-3 ">alo 123 flex</div>
+        <!-- phần tử không có grow giữ nguyên thuộc tính khi ở trong khối flex chỉ chiếm chiều rộng bằng phần content  -->
+        <div class="bg-pink-200  border-2 rounded  ">alo 123 flex</div>
+    </div>
+
+    <!-- có thể thêm responsive -->
+
+    <div class=" flex h-15 w-screen items-start bg-blue-300 mt-2  ">
+        <!-- md:grow : khi kích thước màn hình > md > 768 -> khối này sẽ mang thuộc tính grow -->
+        <div class="bg-pink-200  border-2 rounded md:grow ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded md:grow ">alo 123 flex</div>
+        <!-- grow : khối này mang thuộc tính grow bất kể kích thước màn hình -->
+        <div class="bg-pink-200  border-2 rounded grow ">alo 123 flex</div>
+        <div class="bg-pink-200  border-2 rounded  ">alo 123 flex</div>
+    </div>
+
+<!--  -->
+
+</body>
+</html>
