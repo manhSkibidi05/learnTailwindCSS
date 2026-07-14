@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <title>Document</title>
+</head>
+<body>    
+<!-- flex-shrink và flex basis -->
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">flex shrink và flex basis</h1>
+
+    <!-- flex-shrink : chỉ mức độ co lại của phần tử khi kích thước màn hình bị co lại 
+     các trường hợp khi sử dụng flex-shrink :
+      shrink-0 -> phần tử giữ nguyên kích thước quy định ban đầu không co lại kể cả màn hình thu nhỏ
+      shrink-1 (mặc định) -> phần tử sẽ co lại khi màn hình co 
+      shrink-number -> với number số càng cao mức độ ưu tiên co lại khi màn hình co lại sẽ được co trước -->
+
+    <!-- khối flex 
+     -> thuộc tính flex-shrink sẽ tác động vào phần tử con nằm trong khối flex
+     h-30 -> chiều cao khối 30 x 4 px
+     w-screen -> chiều rộng 100 vw
+     items-start -> các phần tử tập trung về phần start của trục y -->
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2">
+        <!-- shrink-0 : khối không thể bị  co lại khi kích thước màn hình giảm -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 shrink-0">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 ">box 1</div>
+        <!-- shrink-2 : với shrink mang giá trị > 0 phần tử sẽ có thể co lại khi màn hình co -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 shrink-2">box 1</div>
+        <!-- shrink-3 : chỉ số shrink càng lớn thì sẽ ưu tiên co lại trước -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 shrink-3">box 1</div>
+    </div>
+
+
+    <!-- có thể thêm responsive -->
+
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2">
+        <!-- md:shrink-2 -> khi màn hình > 768 thì phần tử có thể bị co lại 
+         màn hình < 768 -> shrink-0 -> màn hình giữ nguyên kích thước -->
+        <div class="bg-blue-300 border-2 rounded-2 h-20 w-50 md:shrink-2 shrink-0  ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 ">box 1</div>
+    </div>
+
+
+<!-- flex-basis : quy định kích thước ban đầu của phần tử nằm trong khối flex 
+ -> các phần tử còn lại trong khối sẽ được quy định về kích thước tối thiểu  -->
+
+    <!-- khối flex 
+     -> thuộc tính flex-basis tác động phần tử con nằm trong khối basis
+     -> thuộc tính này quy định kích thước ban đầu của phần tử con-->
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <!--cả 2 phần tử đều có basis-1/2 nên 2 phần tử chia đều nhau kích thước của khối cha  -->
+        <div class="bg-blue-300 border-2 rounded-2 h-20 w-50 basis-1/2  ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-1/2 ">box 1</div>
+    </div>
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <!-- basis-full : phần tử này sẽ chiếm hết kích thước còn lại của phần tử cha -->
+        <div class="bg-blue-300 border-2 rounded-2 h-20 w-50 basis-full">box 1</div>
+        <!-- 2 khối này basis-1/2 : 1/2 kích thước của phần tử full trên -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-1/2 ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-1/2 ">box 1</div>
+    </div>
+
+    <!-- thêm responsive  -->
+
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <div class="bg-blue-300 border-2 rounded-2 size-20 md:basis-1/2 basis-full">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-1/2 ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-1/2 ">box 1</div>
+    </div>
+
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <div class="bg-blue-300 border-2 rounded-2 size-20 md:basis-full basis-1/3 ">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 md:basis-full basis-1/3">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-full ">box 1</div>
+    </div>
+
+<!-- order : sắp xếp thứ tự xuất hiện của các phần tử nằm trong khối flex -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">order</h1>
+
+    <!-- order -> dùng cho các phần tử con nằm trong flex -->
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <!-- mặc định các phần tử không có order sẽ đứng đầu -> order = -1 
+         -> order càng cao sẽ xuất hiện càng cuối -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-1">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-3">box 2</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-full ">box 3</div>
+    </div>
+
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <!-- ngoài ra : order-last -> luôn xuất hiện ở cuối
+         order-first -> luôn xuất hiện ở đầu -->
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-last">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-first">box 2</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-full ">box 3</div>
+    </div>
+
+    <!-- thêm responsive  -->
+
+    <div class="flex h-30 w-screen items-start bg-green-300 mt-2 gap-2">
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-1">box 1</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 order-2">box 2</div>
+        <div class="bg-blue-300 border-2 rounded-2 size-20 basis-full md:order-first order-3">box 3</div>
+    </div>
+
+</body>
+</html>
