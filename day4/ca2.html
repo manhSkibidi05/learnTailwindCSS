@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/output.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- grid : chia các phần tử con nằm trong lưới grid tuân theo quy tắc của lưới
+ -> lưới này được chia theo các hàng và cột  -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">grid</h1>
+
+    <!-- grid-template-columns : phần chia các cột trong khối grid 
+     -> trong tailwind sử dụng class : grid-cols-number : chia các cột sẽ có kích thước bằng nhau
+     -> vd : grid-cols-3 : trong khối grid này sẽ được chia làm 3 cột với kích thước bằng nhau -> 
+     chia đều dựa trên kích thước phần tử cha -->
+
+    <!-- grid : khối này trạng thái dạng lưới
+      grid-cols-3 : khối này sẽ được chia làm 3 cột với kích thước bằng nhau
+      gap-2 : tăng khoảng cách giữa cả cột và hàng lên 2 * 4 = 8 px
+      mt-3 : cách phần tử trên 3 * 4 = 12px   -->
+    <div class="grid mt-3 grid-cols-3 gap-2">
+      <div class="bg-blue-200 border-2 rounded">box 1</div>
+      <div class="bg-blue-200 border-2 rounded">box 2</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+    </div>
+
+    <!-- có thể tự custom chia cột  -->
+
+    <!-- grid-cols-[1fr_2fr_1fr] : chia lưới thành 3 cột với kích thước lần lượt 1fr 2fr 1fr 
+    -> đơn vị fr : lấy số fr của từng cột chia cho tổng số fr -> ra số phần mà nó chiếm của lưới cha 
+    -> vd : 2fr -> tổng 4 fr : 2/4 = 1/2 -> cột thứ 2 chiếm 1/2 hay 50% chiều rộng phần tử cha -->
+    <div class="grid mt-3 grid-cols-[1fr_2fr_1fr] gap-2">
+      <div class="bg-blue-200 border-2 rounded">box 1</div>
+      <div class="bg-blue-200 border-2 rounded">box 2</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+    </div>
+
+    <!-- có thể thêm responsive  -->
+
+    <!-- lg:grid-cols-3 -> khi màn hình > lg > 1024 khối này chi làm 3 cột 
+     khi màn hình < 1024 : grid-cols-none -> các phần tử con trở lại luồng thông thường -->
+    <div class="grid mt-3 lg:grid-cols-3 grid-cols-none gap-2">
+      <div class="bg-blue-200 border-2 rounded">box 1</div>
+      <div class="bg-blue-200 border-2 rounded">box 2</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+      <div class="bg-blue-200 border-2 rounded">box 3</div>
+    </div>
+
+    <!-- grid-cols-subgrid : dành cho phần tử con cũng là 1 grid nằm trong khối grid 
+     -> phần tử con này nằm trong khối grid cha và kế thừa vị trí lưới cha nó đã chia -->
+
+    <!-- grid-cols-3 : chia lưới làm 3 cột  -->
+    <div class="grid mt-3 grid-cols-3 gap-2">
+      <!-- phần tử con này muốn kế thừa dạng lưới của phần tử cha 
+       -> sử dụng : grid-cols-subgrid 
+       - col-span-3 :phần tử chiếm 3 cột của khối -> chiếm nguyên 1 hàng-->
+      <div class="grid grid-cols-subgrid col-span-3">
+        <!-- phần tử con của phần tử này vẫn tuân theo lưới của ông nó 
+         -> 2 phần tử chiếm 2 cột -->
+        <div class="bg-red-200 border-2 rounded">box 1</div>
+        <div class="bg-red-200 border-2 rounded">box 2</div>
+      </div>
+      <!-- grid-cols-subgrid : giúp cho phần tử con của khối nó tuân theo quy tắc lưới của phần tử cha của khối nó -->
+      <div class="grid grid-cols-subgrid col-span-3">
+        <div class="bg-red-200 border-2 rounded">box 1</div>
+        <div class="bg-red-200 border-2 rounded">box 2</div>
+        <div class="bg-red-200 border-2 rounded">box 2</div>
+      </div>
+    </div>
+
+    <!-- grid-template-rows : chia các hàng trong khối grid
+ - trong tailwind : grid-rows-number : chia thành các hàng với kích thước bằng nhau 
+ - vd : grid-rows-3 -> 3 hàng kích thước bằng nhau -> chia đều dựa vào kích thước khối grid cha-->
+
+    <!-- grid-rows-3 : chia lưới này làm 3 hàng  -->
+    <div class="grid mt-3 grid-rows-3 gap-2">
+      <!-- các phần tử con nhiều hơn số lượng 3 hàng nên -> chỉ 3 hàng đầu sẽ được dựa trên chiều cao quy định bởi lưới
+       -> các hàng còn lại chiều cao là auto -> dựa trên kích thước chính nó -->
+      <div class="bg-pink-200 border-2 rounded">box 1</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+    </div>
+
+    <!-- có thể tự custom kích thước cũng như số hàng -->
+
+    <!-- grid-rows-[2fr_1fr] : chia làm 2 hàng -> 2 hàng định nghĩa : hàng đầu 2fr và hàng sau 1fr-->
+    <div class="grid mt-3 grid-rows-[2fr_1fr] gap-2">
+      <!-- vì số hàng chỉ là 2 mà số phần tử > 2 -> chỉ 2 phần tử đầu được tuân theo kích thước lưới quy định
+       -> các phần tử sau kích thước auto -> dựa vào phần content -->
+      <div class="bg-black border-2 rounded">box 1</div>
+      <div class="bg-black border-2 rounded">box 2</div>
+      <div class="bg-black border-2 rounded">box 2</div>
+      <div class="bg-black border-2 rounded">box 2</div>
+      <div class="bg-black border-2 rounded">box 2</div>
+      <div class="bg-black border-2 rounded">box 2</div>
+    </div>
+
+    <!-- grid-rows-subgrid : dành cho phần tử con có grid kế thừa các thừa các thuộc tính grid của cha
+     -> các phần tử con nằm trong class này sẽ được kế thừa dạng lưới được cài đặt bởi khối ông  -->
+
+     <!-- grid-rows-[1fr_auto] : chia làm 2 hàng , hàng đầu : 1fr 
+      hàng sau : auto -> chiều cao dựa vào kích thước ban đầu của khối 
+      grid-cols-2 L: chia làm 2 cột-->
+    <div class="grid mt-3 grid-rows-[1fr_auto] grid-cols-2 gap-2">
+      <div class="grid grid-rows-subgrid row-span-2">
+        <div class="bg-green-900 border-2 rounded">box 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est eaque labore iste, eius natus! Doloremque non provident cumque corporis, illum veniam laborum nostrum dicta, quos, id quam debitis quia.
+        Nam molestias doloremque dolore illo. Tempore exercitationem eligendi aliquid quaerat molestias, tempora qui dicta perspiciatis eius sed illo debitis odit ad ut non commodi suscipit harum est, incidunt maiores neque.
+        Veniam eius voluptas iure omnis? Aspernatur ut temporibus sit voluptatem provident tempora molestias neque ex nobis! Esse quos quis, ea deleniti ducimus enim tempora odio nesciunt eum dignissimos hic. Tempore!
+        Distinctio tenetur quaerat cumque sit ad ducimus consequuntur magnam soluta obcaecati rerum quam ipsa libero molestias, nisi, qui doloribus explicabo! In amet corrupti quos nesciunt voluptatum velit illum eius dolorem!
+        Ad iste cumque magni earum dolore eaque possimus non pariatur architecto nisi. In veritatis vel aut esse? Officia, omnis nemo! Aut repudiandae delectus ab dignissimos, ipsa asperiores qui tenetur vitae.
+        Quas vitae animi laboriosam illo mollitia, similique expedita repellendus itaque dolor doloremque aut qui blanditiis beatae officia voluptatem delectus laborum architecto dicta quasi quam commodi voluptas quae dolores. Quam, illo.
+        Voluptatum consectetur molestias dicta, beatae asperiores delectus incidunt! Corporis inventore fugiat dignissimos? Nostrum cumque, placeat dolores aperiam sed est veniam. Quasi modi facere quisquam suscipit officiis! Praesentium nemo expedita distinctio.
+        Ex a tempora voluptatem vel ad eum iusto repellendus ratione quaerat itaque accusantium sit saepe debitis excepturi animi mollitia quibusdam, recusandae eaque. Iure, laudantium. Esse odio at excepturi vel praesentium!
+        Ratione quae quaerat vitae saepe laudantium ipsam voluptas exercitationem consequatur nam aliquid amet commodi velit repudiandae provident, possimus porro sunt nulla! Distinctio sapiente commodi dolorum consequatur doloribus nostrum ipsam fuga!
+        Nihil ratione rerum, voluptas blanditiis dolor voluptates natus? Sunt ipsam perferendis laboriosam, similique, labore in facilis ab nesciunt quia eveniet consequuntur pariatur reiciendis ea sapiente minus recusandae amet animi repellat.
+        Blanditiis tenetur hic consequuntur nihil. Culpa veniam dolorum vero fugiat sit molestiae id ullam nemo perspiciatis esse earum, voluptatem in aperiam numquam autem reprehenderit cupiditate saepe ratione inventore! Nisi, corporis!
+        Recusandae totam, nam commodi atque consequatur nulla veniam quae dicta porro ea fuga fugiat facere mollitia dolor inventore eveniet saepe, vero iure repellat quia. Fugiat, quasi! Molestiae provident expedita iusto.
+        Dignissimos aliquid ad recusandae in, est aut alias eaque vel facere temporibus qui ipsa accusamus ullam! Aliquam facere amet ex consectetur eos tempore voluptatem, suscipit commodi animi omnis, assumenda ullam.
+        Possimus nulla quia nisi laboriosam recusandae adipisci veritatis eum? Dolorem facilis amet eum! Dicta, provident eum, dolore laboriosam impedit officiis vitae quam itaque, obcaecati nemo numquam nam. Unde, vero cum?
+        Iure at sequi quasi necessitatibus commodi assumenda, repellat eum architecto ex, numquam similique, possimus fugiat suscipit odit tempora. Non eius itaque sequi quo enim eum velit laborum unde optio. Voluptate.
+        Harum ratione ab, earum sunt aliquam id incidunt accusamus mollitia quam, quae ullam consequatur inventore, ipsum deserunt minima at obcaecati nobis cupiditate distinctio explicabo. A perferendis fugit iure voluptatibus quos!
+        Porro corporis eos quaerat temporibus esse aliquam voluptates quidem ut pariatur cum quibusdam veritatis natus, odio quos optio molestias iusto nam rem repellat. Doloremque quia harum delectus fuga at eligendi?
+        Dolores, non laborum illum veniam veritatis iste perspiciatis ullam deserunt ab explicabo eius sapiente recusandae. Fuga esse ratione vel distinctio qui exercitationem, dolorem corporis, possimus numquam illo maiores quam molestiae!
+        Suscipit, reprehenderit. Velit voluptatem quis repudiandae laboriosam veritatis saepe enim, quae dolores vero tenetur nemo maxime quod officiis consectetur iste ad neque. Sequi assumenda nesciunt tempore eaque reiciendis, molestias in.
+        Et ratione quaerat, blanditiis libero earum magni modi provident sint laudantium dolorem quam nulla ullam error nostrum eveniet! Incidunt dolorum sapiente cumque libero aperiam ipsum, alias minima quibusdam voluptate sequi?</div>
+        
+      </div>
+      <div class="grid grid-rows-subgrid row-span-2">
+        <div class="bg-green-900 border-2 rounded">box 1</div>
+        <div class="bg-green-900 border-2 rounded">box 2</div>
+      </div>
+      <div class="grid grid-rows-subgrid row-span-2">
+        <div class="bg-green-900 border-2 rounded">box 1</div>
+        <div class="bg-green-900 border-2 rounded">box 2</div>
+      </div><div class="grid grid-rows-subgrid row-span-2">
+        <div class="bg-green-900 border-2 rounded">box 1</div>
+        <div class="bg-green-900 border-2 rounded">box 2</div>
+      </div>
+    </div>
+
+    <!-- grid-cols-subgrid và grid-rows-subgrid : giúp cho các phần tử con trong khối này kế thừa lưới khối cha nó
+     -> phù hợp khi chia lưới cho khối riêng biệt có nhiều phần tử con muốn tuân theo quy tắc chung của lưới -->
+    
+
+    <!-- grid-column và grid-row  -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">
+      grid-column và grid-row
+    </h1>
+
+    <!-- grid-column : kiểm soát kích thước và vị trí của phần tử nằm trong lưới grid   -->
+    <!-- col-span-number : dành cho phần tử nằm trong lưới -> quy định phần tử này chiếm bao nhiêu cột -->
+
+    
+    <div class="grid mt-3 grid-rows-2 grid-cols-4 gap-2">
+      <div class="bg-pink-200 border-2 rounded">box 1</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <!-- col-span-2 : phần tử này chiếm 2 cột -->
+      <div class="bg-pink-200 border-2 rounded col-span-2">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+      <!-- col-span-full : chiếm tổng số cột được quy định -> nguyên 1 hàng -->
+      <div class="bg-pink-200 border-2 rounded col-span-full">box 2</div>
+      <div class="bg-pink-200 border-2 rounded">box 2</div>
+    </div>
+
+    <!-- col-start-number và col-end-number : vị trí bắt đầu của 1 phần từ và vị trí kết thúc của 1 phần tử 
+     -> number là số vị trí bắt đầu xuất hiện hoặc kết thúc của 1 phần tử  -->
+
+    <div class="grid mt-3 grid-rows-2 grid-cols-4 gap-2">
+      <!-- col-start-1 : phần tử này bắt đầu từ cột 1 
+       col-end-3 : kết thúc ở đầu cột 3 -> chiếm 2 cột-->
+      <div class="bg-purple-200 border-2 rounded col-start-1 col-end-3">
+        box 1
+      </div>
+      <div class="bg-purple-200 border-2 rounded">box 2</div>
+      <div class="bg-purple-200 border-2 rounded">box 2</div>
+      <!-- col-start-2 : bắt đầu ở đầu cột 2 
+       col-end-4 : kết thúc ở đầu cột 4 -> chiếm 2 cột  -->
+      <div class="bg-purple-200 border-2 rounded col-start-2 col-end-4">
+        box 2
+      </div>
+      <div class="bg-purple-200 border-2 rounded">box 2</div>
+      <div class="bg-purple-200 border-2 rounded">box 2</div>
+    </div>
+
+    <!-- grid-row-number : dành cho phần tử nằm trong lưới grid  -->
+    <!-- row-span-number : number cho biết phần tử này chiếm mấy hàng -->
+
+    <div class="grid mt-3 grid-rows-4 grid-cols-4 gap-2">
+      <div class="bg-gray-200 border-2 rounded">box 1</div>
+      <!-- row-span-2 : chiếm 2 hàng 
+       col-span-2 : chiếm 2 cột -->
+      <div class="bg-gray-200 border-2 row-span-2 col-span-2 rounded">
+        box 2
+      </div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <!-- phần tử này chiếm 2 hàng -> trong trường hợp quy đinh lưới ban đầu chỉ là 2 thì hàng này sẽ không tuân theo đúng quy tắc
+       -> trường hợp lưới là 4 hàng -> phần tử này tuân đúng quy tắc vì đủ hàng -->
+      <div class="bg-gray-200 border-2 rounded row-span-2">box 2</div>
+    </div>
+
+    <!-- row-start-number và row-end-number : vị trí bắt đầu xuất hiện hoặc kết thúc của 1 phần tử theo hàng
+     -> number biểu thị cho vị trí bắt đầu hoặc kết thúc của hàng nào -->
+
+    <div class="grid mt-3 grid-rows-4 grid-cols-4 gap-2">
+      <div class="bg-gray-200 border-2 rounded">box 1</div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <div
+        class="bg-gray-200 border-2 rounded row-start-2 row-end-4 col-start-1 col-end-3"
+      >
+        box 2
+      </div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+      <div class="bg-gray-200 border-2 rounded">box 2</div>
+    </div>
+  </body>
+</html>
