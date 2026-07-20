@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <title>Document</title>
+</head>
+<body>
+<!-- grid-auto-flow -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">grid-auto-flow</h1>
+
+    <!-- grid-flow-row (trạng thái mặc định) : mỗi có phần tử mới sẽ tạo thêm hàng mới 
+     -> phần tử chạy từ trái sang phải cho tới khi hết quy định số cột -> sẽ tạo ra hàng mới   -->
+
+    <!-- grid-cols-2 : chia lưới làm 2 cột
+     grid-flow-row : các phần tử con chiếm hết 2 cột -> nếu còn phần tử sẽ xuống hàng mới -->
+    <div class="grid grid-cols-2 mt-4 gap-2 grid-flow-row">
+        <div class="bg-pink-700 border rounded">item 1</div>
+        <div class="bg-pink-700 border rounded">item 2</div>
+        <div class="bg-pink-700 border rounded">item 3</div>
+        <div class="bg-pink-700 border rounded">item 4</div>
+        <div class="bg-pink-700 border rounded">item 4</div>
+    </div>
+
+    <!-- grid-flow-col : khi có phần tử mới sẽ tạo cột mới 
+     -> phần tử chạy từ trên xuống dưới hết quy định số hàng -> tạo cột mới-->
+
+     <!-- grid-rows-2 : chia lưới làm 2 hàng 
+      grid-flex-col : phần tử chiếm hết 2 hàng trước -> nếu còn phần tử sẽ sang cột mới -->
+    <div class="grid grid-rows-2 mt-4 gap-2 grid-flow-col">
+        <div class="bg-purple-700 border rounded">item 1</div>
+        <div class="bg-purple-700 border rounded">item 2</div>
+        <div class="bg-purple-700 border rounded">item 3</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+    </div>
+
+    <!-- grid-flow-col-dense và grid-flow-row-dense  : tự động điền vào chỗ trống -->
+
+    <!-- lúc chưa có dense -->
+
+    <!-- grid-rows-2 : chia làm 2 hàng 
+     grid-flow-col : phần tử đi hết số hàng quy định -> sang  cột mới nếu còn phần tử -->
+    <div class="grid grid-rows-2 mt-4 gap-2 grid-flow-col">
+        <div class="bg-purple-700 border rounded">item 1</div>
+        <!-- row-span-2 : phần tử này chiếm 2 hàng-->
+        <div class="bg-purple-700 border row-span-2 rounded">item 2</div>
+        <div class="bg-purple-700 border rounded">item 3</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+    </div>
+
+    <!-- lúc có dense -->
+     <!-- grid-flow-col-dense : giúp điền vào chỗ còn trống -> trong trường hợp phần tử chiếm nhiều cột bỏ lại 1 vài chỗ trống
+      -> sử dụng thuộc tính này giúp các phần tử con khác điền vào chỗ trống nếu phù hợp về kích thước -->
+    <div class="grid grid-rows-2 mt-4 gap-2 grid-flow-col-dense">
+        <div class="bg-purple-700 border rounded">item 1</div>
+        <div class="bg-purple-700 border row-span-2 rounded">item 2</div>
+        <div class="bg-purple-700 border rounded">item 3</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+        <div class="bg-purple-700 border rounded">item 4</div>
+    </div>
+
+<!-- grid-auto-col và grid-auto-row -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">grid-auto-col và grid-auto-row</h1>
+
+    <!-- grid-auto-col : khi có các phần tử thừa ra không nằm trong định nghĩa lưới ban đầu 
+     -> sử dụng thuộc tính này sẽ quy định kích thước của các phần tử đó -->
+    
+     <!--  auto-col-auto (mặc định) : dựa vào phần content -> quy định kích thước  -->
+
+     <!-- auto-cols-auto : quy định kích thước các phần tử con không nằm trong quy định về kích thước của lưới
+      -> auto phần tử thừa ra đó sẽ có kích thước bằng phần content đó -->
+    <div class="grid grid-cols-2 mt-4 gap-2 auto-cols-auto">
+        <div class="bg-red-700 border rounded">item 1</div>
+        <div class="bg-red-700 border rounded">item 2</div>
+        <div class="bg-red-700 border rounded col-start-3">item 3 abcajhdk</div>
+    </div>
+
+    <!-- auto-col-min : đưa kích thước về dạng tối thiểu nhất 
+     -> đưa kích thước của các phần tử bị thừa ra đó về dạng min-->
+    <div class="grid grid-cols-2 mt-4 gap-2 auto-cols-min">
+        <div class="bg-red-700 border rounded">item 1</div>
+        <div class="bg-red-700 border rounded">item 2</div>
+        <div class="bg-red-700 border rounded col-start-3">item 3 abcajhdk</div>
+    </div>
+
+    <!-- auto-col-max : đưa kích thước về dạng tối đa nhất 
+     -> đưa kích thước của các phần tử bị thừa ra đó về dạng max-->
+    <div class="grid grid-cols-2 mt-4 gap-2 auto-cols-max">
+        <div class="bg-red-700 border rounded">item 1</div>
+        <div class="bg-red-700 border rounded">item 2</div>
+        <div class="bg-red-700 border rounded col-start-3">item 3 abcajhdk</div>
+    </div>
+
+    <!-- grid-auto-row : khi có các phần tử dư thừa khi không nằm trong quy định số hàng của lưới
+     -> sự dụng thuộc tính này quy định kích thước của các phần tử thừa đó -->
+
+     <!-- auto-rows-auto (mặc định) : theo kích thước của chính nó -->
+    <div class="grid grid-rows-[100px_50px] mt-4 gap-2 auto-rows-auto">
+        <div class="bg-blue-700 border rounded">item 1</div>
+        <div class="bg-blue-700 border rounded">item 2</div>
+        <div class="bg-blue-700 border rounded">item 3</div>
+    </div>
+
+    <!-- auto-rows-min và auto-rows-max tương tự trên -->
+
+    <!-- auto-rows-fr : chiếm phần kích thước còn lại của phần tử cha 
+    -> đơn vị fr : phần tử con thừa ra có đơn vị fr -> chiếm kích thước dựa vào 
+    kích thước còn lại của phần tử cha -->
+    <div class="grid h-60 grid-rows-[100px_50px] mt-4 gap-2 auto-rows-">
+        <div class="bg-blue-700 border rounded">item 1</div>
+        <div class="bg-blue-700 border rounded">item 2</div>
+        <div class="bg-blue-700 border rounded">item 3</div>
+        <div class="bg-blue-700 border rounded">item 3</div>
+    </div>
+
+<!-- align-items và justify-items  -->
+
+    <h1 class="text-center text-xl text-white p-3 bg-green-500">align-items và justify-items</h1>
+
+    <!-- align-items : căn vị trí của các phần tử nằm trong hàng chính nó-->
+
+    <!-- items-stretch (mặc định) : các phần tử dãn kích thước cho đầy khối cha  -->
+
+    <!-- items-stretch : các phần tử trong khối này sẽ giữ nguyên mặc định -> kích thước của phần tử chiếm hết
+     ô chứa phần tử đó 
+     - grid-rows-[100px_50px] -> chia làm 2 hàng , hàng đầu chiếm 100px , hàng sau chiếm 50 px 
+     - grid-cols-2 : chia làm 2 cột mỗi cột 1fr -->
+    <div class="grid grid-rows-[100px_50px] items-stretch grid-cols-2 mt-4 gap-2 auto-rows-auto">
+        <div class="bg-gray-700 border rounded">item 1</div>
+        <div class="bg-gray-700 border rounded">item 2</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+    </div>
+
+    <!-- items-start : căn các phần tử về phần start của hàng -> trục y -->
+
+    <!-- items-start : các phần tử nằm trong ô chứa nó sẽ ở vị trí start theo hàng -> theo trục y  -->
+    <div class="grid grid-rows-[100px_50px] border items-start grid-cols-2 mt-4 gap-2 auto-rows-auto">
+        <div class="bg-gray-700 border rounded">item 1</div>
+        <div class="bg-gray-700 border rounded">item 2</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+    </div>
+
+    <!-- items-end : các phần tử nằm trong ô chứa nó sẽ ở vị trí end theo cột -> theo trục y -->
+    <div class="grid grid-rows-[100px_50px] border items-end grid-cols-2 mt-4 gap-2 auto-rows-auto">
+        <div class="bg-gray-700 border rounded">item 1</div>
+        <div class="bg-gray-700 border rounded">item 2</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+        <div class="bg-gray-700 border rounded">item 3</div>
+    </div>
+
+    <!-- justify-items : căn vị trí của các phần tử nằm trong cột chứa phần tử đó  -->
+
+    <!-- justify-items-stretch : trạng thái mặc định của 1 phần tử nằm trong ô đó 
+     -> chiếm hết ô chứa nó cả về chiều rộng và chiều cao  -->
+    <div class="grid grid-rows-[100px_50px] border justify-items-stretch grid-cols-2 mt-4 gap-2 ">
+        <div class="bg-amber-700 border rounded">item 1</div>
+        <div class="bg-amber-700 border rounded">item 2</div>
+        <div class="bg-amber-700 border rounded">item 3</div>
+        <div class="bg-amber-700 border rounded">item 3</div>
+    </div>
+
+    <!-- justify-items-center -> cho các phần tử ra giữa trong ô chứa chính nó  -->
+    <div class="grid grid-rows-[100px_50px] border justify-items-center grid-cols-2 mt-4 gap-2 ">
+        <div class="bg-amber-700 border rounded">item 1</div>
+        <div class="bg-amber-700 border rounded">item 2</div>
+        <div class="bg-amber-700 border rounded">item 3</div>
+        <div class="bg-amber-700 border rounded">item 3</div>
+    </div>
+
+<!-- justify-content và align-content -->
+
+    <h1 class="text-center text-xl text-white bg-green-500 p-3 mt-3">justify-content và align-content</h1>
+
+    <!-- justify-content : căn vị trí của các cột được chia bởi lưới  -->
+
+    <!-- justify-between : chia các cột không cách lề và cách nhau một khoảng bằng nhau -->
+    <div class="grid grid-cols-[100px_repeat(2,200px)] justify-between border grid-rows-2 mt-5">
+        <div class="bg-green-500 p-3 rounded border">item 1</div>
+        <div class="bg-green-500 p-3 rounded border">item 2</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+    </div>
+
+    <!-- justify-end : chia các cột về phần end theo trục x  -->
+    <div class="grid grid-cols-[100px_repeat(2,200px)] justify-end border grid-rows-2 mt-5">
+        <div class="bg-green-500 p-3 rounded border">item 1</div>
+        <div class="bg-green-500 p-3 rounded border">item 2</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+        <div class="bg-green-500 p-3 rounded border">item 3</div>
+    </div>
+
+    <!-- align-content : căn vị trí của các hàng ở trong lưới -->
+
+    <!-- content-start : vị trí mặc định ở phần start của trục y -->
+    <div class="grid grid-cols-2 content-start h-50 border mt-5">
+        <div class="bg-pink-900 border rounded">item 1</div>
+        <div class="bg-pink-900 border rounded">item 2</div>
+        <div class="bg-pink-900 border rounded">item 3</div>
+        <div class="bg-pink-900 border rounded">item 4</div>
+    </div>
+
+    <!-- content-center : vị trí của các hàng bắt đầu giữa lưới-->
+    <div class="grid grid-cols-2 content-center h-50 border mt-5">
+        <div class="bg-pink-900 border rounded">item 1</div>
+        <div class="bg-pink-900 border rounded">item 2</div>
+        <div class="bg-pink-900 border rounded">item 3</div>
+        <div class="bg-pink-900 border rounded">item 4</div>
+    </div>
+
+
+</body>
+</html>
