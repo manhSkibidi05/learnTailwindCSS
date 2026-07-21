@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/output.css" />
+    <title>Document</title>
+  </head>
+  <body class="bg-white text-black dark:bg-black dark:text-white transition-all delay-150 duration-1000 ease-in-out">
+    <!-- nav -->
+    <nav>
+      <div
+        class="container max-w-7xl mx-auto flex items-center justify-between py-2"
+      >
+        <!-- logo -->
+        <a class="no-underline" href="">
+          <div class="w-30">
+            <img class="w-100" src="../img/moiLogo.png" alt="" />
+          </div>
+        </a>
+
+        <!-- dark mode btn -->
+        <button class="border rounded p-1 cursor-pointer btn-dark-mode">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+            />
+          </svg>
+        </button>
+        <!-- list link -->
+        <ul class="hidden lg:flex gap-x-2">
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Enterprise</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Docs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="no-underline py-2 px-3 hover:bg-gray-100/50 rounded-xl"
+              >Careers</a
+            >
+          </li>
+        </ul>
+        <!-- user action -->
+        <div class="hidden lg:flex items-center gap-x-2 text-sm">
+          <a
+            class="border border-gray-500 rounded p-2 hover:border-[#888]"
+            href="#"
+            >Sign in</a
+          >
+          <button
+            class="flex gap-2 items-center cursor-wait bg-white text-black p-2 rounded"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+
+            Download
+          </button>
+        </div>
+        <!-- mobile button -->
+        <button class="lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- content -->
+    <section class="mt-40 max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 grid-rows-2">
+        <div class="mx-auto lg:mb-0 mb-10 rounded w-1/2 row-span-2">
+          <img class="w-full" src="../img/myLogo.png" alt="" />
+        </div>
+
+        <h1 class="text-center text-7xl tracking-wider dark:text-pink-900 transition-colors duration-1000 delay-100 ease-in-out">
+          Dự án đầu tiên tailwind
+        </h1>
+        <p
+          class="text-center italic underline hover:text-pink-200 mt-5 text-2xl dark:text-blue-500 transition-colors duration-1000 delay-100 ease-in-out"
+        >
+          moiCode.vn
+        </p>
+      </div>
+    </section>
+    <script>
+      const btnDarkMode = document.querySelector(".btn-dark-mode");
+      btnDarkMode.addEventListener("click" , function(){
+        document.documentElement.classList.toggle("dark");
+        
+        
+      })
+    </script>
+  </body>
+</html>
