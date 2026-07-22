@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<!-- class : dark nằm trong thẻ html -> lúc này web đang ở chế độ tối  -->
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../src/output.css" />
+    <title>Document</title>
+  </head>
+  <!-- dark:bg-black -> nếu đang ở chế độ tối -> thẻ html có class dark : màu nền đen
+   dark:text-white -> nếu đang ở chế độ tối -> màu chữ trắng 
+   transition-all -> hiệu ứng diễn ra khi phần tử thay đổi áp dụng với tất cả các thuộc tính của thẻ body
+   duration-500 -> hiệu ứng diễn ra trong 500ms
+   delay-100 -> hiệu ứng trước khi diễn ra sẽ bị delay 100ms
+   ease-in-out -> kiểu hiệu ứng sẽ diễn ra nhưng vẫn diễn ra trong vòng 500ms  
+   -->
+  <body
+    class="text-roboto dark:bg-black dark:text-white transition-all duration-500 delay-100 ease-in-out"
+  >
+    <!-- giới thiệu bản thân-->
+    <section class="introduction">
+      <!-- thanh điều hướng -->
+
+      <!-- md:block -> khối này trạng thái block khi kích thước màn hình > md > 768 
+       khi màn hình < 768 -> hidden -> display none -> không chiếm vị trí layout và bị ẩn đi 
+       fixed : căn vị trí theo khung nhìn màn hình -> vị trí cố định
+       top-5 , left-10 -> cách top 20px và left 40px
+       z-10 : z-index = 10 -> phần tử sẽ có thể đè lên phần tử khác nếu có z-index lớn hơn 
+       -> khối này tác dụng căn vị trí của cả khối và các phần tử con trong nó -->
+      <div class="md:block hidden fixed top-5 left-10 z-10">
+        <!-- khối danh sách các phần tử chuyển hướng trang web 
+         flex : trạng thái flex 
+         hover:bg-black -> khi di chuột qua thêm màu nền đen 
+         dark:hover:bg-moi1 -> khi hover qua chuyển màu nền trắng -->
+        <ul
+          class="hover:bg-black dark:hover:bg-moi1 flex gap-x-3 border rounded py-2 px-5
+           border-gray-500 transition-all duration-300 ease-in-out"
+        >
+          <li
+            class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black 
+            transition-all duration-300 ease-in-out"
+          >
+            <a href="">Dashboard</a>
+          </li>
+          <li
+            class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+          >
+            <a href="">Team</a>
+          </li>
+          <li
+            class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+          >
+            <a href="">Project</a>
+          </li>
+          <li
+            class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+          >
+            <a href="">Calender</a>
+          </li>
+          <li
+            class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+          >
+            <a href="">Reports</a>
+          </li>
+        </ul>
+      </div>
+      <!-- bar 
+      -> phần hiện thị các phần tử trong 1 khoảng khi click -->
+      <div class="bar">
+        <!-- bar button : nút bấm giúp hiện thị phần bar -> nút bấm được hiện thị khi màn hình > md > 768 -->
+        <button
+          class="bar-btn fixed md:hidden z-10 group top-5 left-10 shadow-primary rounded p-2 
+          cursor-pointer text-gray-500 dark:hover:bg-white transition-all duration-500 delay-100 
+          ease-in-out hover:bg-black dark:border"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+        <!-- nội dung bar : lúc này nội dung bar sẽ là các thanh điều hướng bị ẩn đi khi màn hình < 768 
+         h-screen -> chiều cao = 100 vh 
+         fixed -> vị trí khối này cố định 1 bên -> khi diễn ra sự kiện click khối này sẽ hiện thị
+         overflow-hidden -> các phần tử con khi bị tràn ra khỏi khối này sẽ bị ẩn đi 
+         transition-all -> áp dụng mọi hiệu ứng 
+         duration-500 -> thời gian thực hiện hiệu ứng 
+         z-50 -> nằm trên hầu hêt các phần tử ở đây-->
+        <div
+          class="bar-content bg-moi6 h-screen overflow-hidden fixed z-50 transition-all 
+          duration-500 ease-in-out"
+        >
+          <ul
+            class="hover:bg-black dark:hover:bg-moi1 border rounded py-2 px-5 border-gray-500 transition-all duration-300 ease-in-out"
+          >
+            <li
+              class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+            >
+              <a href="">Dashboard</a>
+            </li>
+            <li
+              class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+            >
+              <a href="">Team</a>
+            </li>
+            <li
+              class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+            >
+              <a href="">Project</a>
+            </li>
+            <li
+              class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+            >
+              <a href="">Calender</a>
+            </li>
+            <li
+              class="text-gray-500 hover:-translate-y-1 hover:text-white dark:hover:text-black transition-all duration-300 ease-in-out"
+            >
+              <a href="">Reports</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- hiện thị tổng số click -->
+      <button
+        type="button"
+        class="fixed z-10 group top-5 right-25 shadow-primary rounded p-2 cursor-pointer text-gray-500 dark:hover:bg-white transition-all duration-500 delay-100 ease-in-out hover:bg-black dark:border"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 group-hover:rotate-30 group-hover:scale-95 transition-all duration-600 ease-in-out"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+          />
+        </svg>
+      </button>
+      <span
+        class="all-of-love text-white font-bold fixed top-2 right-22 z-20 px-2 rounded-full bg-red-500 transition-all duration-200"
+        >0</span
+      >
+      <!-- dark mode btn -->
+
+      <!-- button thay đổi chế độ giữa ngày và đêm
+       fixed : button sẽ căn vị trí theo viewport -> viewport di chuyển phần tử này giữ nguyên vị trí đó
+       top-5 : cách top 20px , right-5 : cách phải 20px 
+       shadow-primary -> kiểu bóng mà được custom ở trong file input.css
+       dark:hover:bg-white -> khi ở chế độ tối thì hover qua khối này chuyển màu nền sang màu trắng
+       dark:border -> ở chế độ tối khối này sẽ có viền -->
+      <button
+        class="fixed top-5 right-10 z-10 shadow-primary rounded p-2 cursor-pointer btn-dark-mode text-gray-500 dark:hover:bg-white transition-all duration-500 delay-100 ease-in-out hover:bg-black dark:border"
+      >
+        <!-- icon mặt trời
+        dark:size-6 -> ở chế độ tối cả chiều rộng và chiều cao của phần tử này 32 px
+        size-0 -> sang chế độ sáng sẽ không có kích thước -> vẫn tồn tại trên layout nhưng không hiển thị vì không có kích thước
+        dark:rotate-180 -> khi chuyển sang chế độ tối -> phần tử sẽ xoay 180 độ  
+        -> hiệu ứng diễn ra trong 500 ms và kiểu hiệu ứng là ease-in-out  -> 
+        -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="dark:size-6 size-0 transition-all duration-500 ease-in-out dark:rotate-180"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+          />
+        </svg>
+
+        <!-- icon mặt trăng 
+         size-6 : ở chế độ sáng bình thường icon mặt trăng sẽ mang kích thước 
+         dark:size-0 : khi sang chế độ tối -> icon sẽ không mang kích thước -> bị ẩn đi nhưng vẫn chiếm vị trí trên layout
+         dark:rotate-180 : khi chuyển sang chế độ tối phần tử này sẽ bị xoay 180 độ 
+         -> khi chuyển lại chế độ mặc đinh sẽ xoay ngược lại 180 độ vì lúc này không tồn tại thuộc tính này nữa 
+         -> khi chuyển qua chuyển lại giữa 2 chế độ sẽ tạo hiệu ứng xoay vòng
+        -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 dark:size-0 transition-all duration-500 ease-in-out dark:rotate-180"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+          />
+        </svg>
+      </button>
+
+      <!-- basic info -->
+      <!-- flex : khối flex
+        flex-col : đảo ngược trục x và x 
+        items-center : căn các phần tử ra giữa theo trục y lúc này đã bị đảo ngược -->
+      <div class="flex items-center flex-col relative">
+        <!-- ảnh nền -->
+        <div
+          class="bg-[url(../img/hoaanhdao.gif)] w-screen h-50 bg-cover bg-bottom bg-no-repeat"
+        ></div>
+
+        <!-- avatar -->
+        <div
+          class="absolute top-35 w-30 rounded-[50%] border-4 border-white dark:border-black overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <img class="w-full" src="../img/deptrai.jpg" alt="" />
+        </div>
+
+        <!-- name and note-->
+        <h1
+          class="text-4xl font-semibold mt-15 text-[#2c2c2c] dark:text-moi1 tracking-wide"
+        >
+          Phan Manh
+        </h1>
+        <h3 class="mt-5 text-gray-500 text-xl text-center md:px-0 px-5">
+          Sinh viên năm thứ 3 của trường đại học Mỏ - Địa Chất
+        </h3>
+        <p
+          class="mt-5 max-w-200 text-center font-light text-gray-500 md:px-0 px-5"
+        >
+          Xây dựng các landing page về mọi lĩnh vực : Bán hàng , giáo dục , kinh
+          doanh , du lịch ... Sử dụng các công nghệ hàng đầu trong lĩnh vực
+          thiết kế website như : HTML-5 , Bootstrap CSS, Tailwind CSS,
+          Javascript
+        </p>
+
+        <!-- contact me -->
+        <div class="flex mt-10 gap-5 md:px-0 px-5 justify-center flex-wrap">
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            href=""
+            class="px-3 py-2 text-gray-500 dark:hover:text-white hover:text-black hover:-translate-y-1 transition-all duration-300 ease-in-out dark:border shadow-primary rounded"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Giới thiệu công nghệ -->
+    <section class="mt-10">
+      <!-- grid : khối được chia theo dạng lưới
+       md:grid-cols-2 -> với kích thước màn hình > md > 768 lưới này được chia làm 2 cột 
+       với màn hình < 768 lưới này về 1 cột -->
+      <div class="grid md:grid-cols-2 gap-5 px-10">
+        <!-- group : phần tử cha chứa class này -> giúp hover cả 1 khối 
+         -> khi hover qua phần tử này , các phần tử con chứa group-hover sẽ thay đổi theo 
+         shadow-primary : custom bóng được thêm vào trong file input.css nằm trong khối @theme{} 
+         darK:hover:border-red -> ở chế độ tối khi hover khối này sẽ có viền màu đỏ 
+         hover:-translate-y-1 -> hover khối này sẽ dịch chuyển theo trục y -4px -->
+        <div
+          class="group dark:hover:border-red hover:border-red-500 hover:-translate-y-1 p-4 shadow-primary rounded dark:border-gray-500 dark:border md:mb-0 mb-3 transition-all duration-300 ease-in-out relative"
+        >
+          <h3
+            class="text-xl pb-1 italic inline border-b dark:text-moi1 text-[#2c2c2c]"
+          >
+            HTML-5
+          </h3>
+          <p class="text-gray-500 mt-2">
+            Là ngôn ngữ đánh dấu tiêu chuẩn được sử dụng để tạo và cấu trúc
+            thành các thành phần trên website.Nó định nghĩa cấu trúc của tài
+            liệu web, kết hợp với CSS để tạo giao diện và JavaScript để thêm
+            tương tác.
+          </p>
+          <!-- dark:border -> khi chế độ tối sẽ tồn tại viền
+            block : đưa button này về display block -> chiếm hết kích thước 1 hàng
+            ms-auto : đẩy hết khoảng cách về bên trái -> dãn kịch trái nên phần tử ở trị trí bên phải 
+            hover:scale-95 -> diễn ra khi hover vào phần tử : thu nhỏ lại 95% kích thước ban đầu của phần tử-->
+          <button
+            type="button"
+            class="btn-add-love mt-2 dark:border cursor-pointer shadow-primary rounded-full p-2 block ms-auto hover:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <!-- group-hover:text-red-500 -> khi phần tử cha của phần tử này chứa class group được hover vào 
+             -> phần tử này sẽ thay đổi theo  -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-red-500 transition-all duration-300 ease-in-out"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
+
+          <!-- phần tử này sẽ hiện thị số lần click vào ô trái tim của khối này 
+           opacity-0 -> ban đầu sẽ được ẩn đi -> sau khi diễn ra sự kiện sẽ được hiện thị ra 
+           -> tạo hiệu ứng từ từ xuất hiện 
+           absolute -> vị trí tuyệt đối -> lúc này vị trí căn theo phần tử cha chứa thuộc tính relative 
+           -top-3 -> cách bên trên -12px , -right-2 -> cách bên phải -8px    -->
+          <span
+            class="show-love-number text-white font-bold absolute -top-3 -right-2 px-3 opacity-0 rounded-full bg-red-500 transition-all duration-700"
+            >0</span
+          >
+          <!-- phần tử này sẽ chứa số tim đã được click của khối này -> nhưng sẽ ẩn đi và gán số tim vào phần tử trên
+           hidden-> trạng thái display : none -> không chiếm vị trí layout , không tương tác được -->
+          <span class="hidden-love-number hidden">0</span>
+        </div>
+        <div
+          class="group dark:hover:border-red-500 hover:-translate-y-1 p-4 shadow-primary rounded dark:border-gray-500 dark:border md:mb-0 mb-3 transition-all duration-300 ease-in-out relative"
+        >
+          <h3
+            class="text-xl pb-1 italic inline border-b dark:text-moi1 text-[#2c2c2c]"
+          >
+            CSS
+          </h3>
+          <p class="text-gray-500 mt-2">
+            là ngôn ngữ dùng để mô tả và định dạng giao diện của các phần tử
+            HTML trên trang web. Nó giúp tách phần nội dung (HTML) và trình bày
+            (CSS), giúp việc thiết kế web trở nên dễ quản lý, linh hoạt và đẹp
+            mắt hơn.
+          </p>
+          <button
+            type="button"
+            class="btn-add-love mt-2 dark:border cursor-pointer shadow-primary rounded-full p-2 block ms-auto hover:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-red-500 transition-all duration-300 ease-in-out"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
+          <span
+            class="show-love-number text-white font-bold absolute -top-3 px-3 opacity-0 rounded-full bg-red-500 -right-2 transition-all duration-200"
+            >0</span
+          >
+          <span class="hidden-love-number hidden">0</span>
+        </div>
+        <div
+          class="group dark:hover:border-red-500 hover:-translate-y-1 p-4 shadow-primary rounded dark:border-gray-500 dark:border md:mb-0 mb-3 transition-all duration-300 ease-in-out relative"
+        >
+          <h3
+            class="text-xl pb-1 italic inline border-b dark:text-moi1 text-[#2c2c2c]"
+          >
+            Bootstrap
+          </h3>
+          <p class="text-gray-500 mt-2">
+            là một framework front-end mã nguồn mở giúp xây dựng website nhanh
+            chóng , đẹp mắt và tương thích với nhiều thiết bị .Nó cung cấp sẵn
+            hệ thống lưới grid system dễ dàng kiểm soát các phần tử , cung cấp
+            nhiều các component đa dạng sử dụng bằng cách thêm các class phù
+            hợp.
+          </p>
+          <button
+            type="button"
+            class="btn-add-love mt-2 dark:border cursor-pointer shadow-primary rounded-full p-2 block ms-auto hover:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-red-500 transition-all duration-300 ease-in-out"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
+          <span
+            class="show-love-number text-white font-bold absolute -top-3 px-3 opacity-0 rounded-full bg-red-500 -right-2 transition-all duration-200"
+            >0</span
+          >
+          <span class="hidden-love-number hidden">0</span>
+        </div>
+        <div
+          class="group dark:hover:border-red-500 hover:-translate-y-1 p-4 shadow-primary rounded dark:border-gray-500 dark:border md:mb-0 mb-3 transition-all duration-300 ease-in-out relative"
+        >
+          <h3
+            class="text-xl pb-1 italic inline border-b dark:text-moi1 text-[#2c2c2c]"
+          >
+            Tailwind
+          </h3>
+          <p class="text-gray-500 mt-2">
+            là một framework của css theo phong cách hiện đại theo triết lí
+            utility-first , cung cấp hàng trăm các tiện ích nhỏ khác với
+            bootstrap cung cấp sẵn các component thì tailwind chỉ cung cấp các
+            lớp nhỏ -> bootstrap cho bạn món ăn còn tailwind cho bạn nguyên liệu
+            cho bạn nhào nấu ra món ăn đó.
+          </p>
+          <button
+            type="button"
+            class="btn-add-love mt-2 dark:border cursor-pointer shadow-primary rounded-full p-2 block ms-auto hover:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-red-500 transition-all duration-300 ease-in-out"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
+          <span
+            class="show-love-number text-white font-bold absolute -top-3 px-3 opacity-0 rounded-full bg-red-500 -right-2 transition-all duration-200"
+            >0</span
+          >
+          <span class="hidden-love-number hidden">0</span>
+        </div>
+        <div
+          class="group md:col-span-2 dark:hover:border-red-500 hover:-translate-y-1 p-4 shadow-primary rounded dark:border-gray-500 dark:border md:mb-0 mb-3 transition-all duration-300 ease-in-out relative"
+        >
+          <h3
+            class="text-xl pb-1 italic inline border-b dark:text-moi1 text-[#2c2c2c]"
+          >
+            JavaScript
+          </h3>
+          <p class="text-gray-500 mt-2">
+            là ngôn ngữ lập trình bậc cao phổ biến nhất trên web , giúp tạo ra
+            các tương tác trên web -> nếu html là khung xe máy , css là vỏ xe
+            vậy js chính là động cơ để có thể vận hành chiếc xe máy đó . Ngoài
+            ra js cũng là ngôn ngữ nền để chúng ta có thể phát triển lên các
+            framework mạnh mẽ khác như : React , Node.js , Vue...
+          </p>
+          <button
+            type="button"
+            class="btn-add-love mt-2 dark:border cursor-pointer shadow-primary rounded-full p-2 block ms-auto hover:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-red-500 transition-all duration-300 ease-in-out"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
+          <span
+            class="show-love-number text-white font-bold absolute -top-3 px-3 opacity-0 rounded-full bg-red-500 -right-2 transition-all duration-200"
+            >0</span
+          >
+          <span class="hidden-love-number hidden">0</span>
+        </div>
+      </div>
+    </section>
+    <!-- phần thông báo hiện thị tổng số lượt click ở tất cả các phần tử có thể click trên web
+     font-bold -> kiểu chữ đậm 
+     fixed -> vị trí của phần tử phụ thuộc vào khung nhìn -> căn vị trí theo khung nhìn và luôn giữ nguyên vị trí đó
+     rounded-full -> làm tròn viền phần tử -> tròn khi khối hình vuông 
+     -->
+
+    <!-- Đặt câu hỏi cho tôi 
+     phần form : điền form đăng kí -->
+    <section class="mt-10 px-10">
+      <div class="">
+        <!-- group -> giúp hover được các phần tử con khi hover khối này -> phần tử con phải sử dụng group-hover
+          hover:border-green-500 -> khi hover khối này sẽ có viền màu xanh 
+          hover:-translate-y-1 -> khi hover khối này sẽ dịch theo trục y -4px
+          dark:border -> ở chế độ tối sẽ thêm viền vào khối này -->
+        <div
+          class="group shadow-primary hover:border-green-500 hover:-translate-y-1 dark:border border-gray-500 rounded py-3 px-4 transition duration-300 ease-in-out"
+        >
+          <!-- tracking-wide : tạo khoảng cách giữa các chữ -->
+          <h3 class="text-xl font-normal tracking-wide">
+            Personal Information
+          </h3>
+          <!-- small : thẻ dùng để bộ trợ cho phần to hơn -> thẻ này sẽ có kích thước nhỏ phù hợp với form đăng kí -->
+          <small class="text-gray-500"
+            >Use a permanent address where you can receive mail.</small
+          >
+          <form action="" class="mt-5">
+            <!-- khối này chứa 2 thẻ input  
+             flex : trạng thái linh hoạt 
+             gap-x-2 : khoảng cách giữa 2 phần tử theo trục x ngang ->8px-->
+            <div class="flex gap-x-2 mb-2">
+              <!-- mỗi khối 
+               md:w-[49%] -> chiếm 49 phần trăm kích thước của thẻ cha -> khi màn hình > md > 768
+               khi màn hình < 768 -> w-full -> chiếm 100% kích thước thẻ cha  -->
+              <div class="flex flex-col md:w-[49%] w-full">
+                <label class="mb-2" for="name">Tên của bạn</label>
+                <!-- border-gray-500 : thẻ input có viền xám 
+                 py-2 -> padding trục y 8px , px-1 -> padding trục x nằm ngang 4px
+                 outline-none -> không có viền ngoài cùng 
+                 dark:bg-black -> khi ở chế độ tối -> màu nền của thẻ input -> màu đen
+                 focus:border-green-500 -> khi nhập dữ liệu vào thẻ input viền sẽ chuyển màu xanh  -->
+                <input
+                  class="border border-gray-500 rounded py-2 px-1 outline-none dark:bg-black focus:border-green-500 transition-all duration-300 ease-in-out"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="nhập tên"
+                />
+              </div>
+              <div class="flex flex-col md:w-[49%] w-full">
+                <label class="mb-2" for="name2">Họ của bạn</label>
+                <input
+                  class="border border-gray-500 rounded py-2 px-1 outline-none focus:border-green-500 transition-all duration-300 ease-in-out"
+                  type="text"
+                  name="name2"
+                  id="name2"
+                  placeholder="nhập họ"
+                />
+              </div>
+            </div>
+            <!-- flex-col -> đổi trục x và y với nhau 
+             w-2/3 -> chiếm 66% kích thước thẻ cha -->
+            <div class="flex flex-col w-2/3 mb-2">
+              <label class="mb-2" for="email">Địa chỉ email</label>
+              <input
+                class="border border-gray-500 rounded py-2 px-1 outline-none focus:border-green-500 transition-all duration-300 ease-in-out"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="nhập email"
+              />
+            </div>
+            <!-- min-w-22 -> chiều rộng tối thiểu của khối -> 88px -> khi màn hình co lại đến 88px phần tử sẽ không co lại nữa
+             max-w-1/3 -> chiều rộng tối đa -> chiếm 33% kích thước của khối -->
+            <div class="flex flex-col min-w-22 max-w-1/3 mb-2">
+              <label class="mb-2" for="country">Quốc gia</label>
+              <select
+                class="border border-gray-500 rounded py-2 px-1 outline-none dark:bg-black focus:border-green-500 transition-all duration-300 ease-in-out"
+                name="country"
+                id="country"
+              >
+                <option value="Viet Nam">Việt Nam</option>
+                <option value="Chia">Trung Quốc</option>
+                <option value="America">Mỹ</option>
+              </select>
+            </div>
+            <div class="flex flex-col mb-2">
+              <label class="mb-2" for="address">Địa chỉ cụ thể</label>
+              <input
+                class="border border-gray-500 rounded py-2 px-1 outline-none focus:border-green-500 transition-all duration-300 ease-in-out"
+                type="text"
+                name="address"
+                id="address"
+                placeholder="nhập địa chỉ cụ thể"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script>
+      // xử lí sự kiện chế độ tối sáng
+      const btnDarkMode = document.querySelector(".btn-dark-mode");
+      btnDarkMode.addEventListener("click", function () {
+        document.documentElement.classList.toggle("dark");
+      });
+
+      // xử lí hiện thị số thông báo
+
+      // khởi tạo danh sách các phần tử có class .btn-add-love -> các nút bấm icon trái tim trên web
+      const btnListLove = document.querySelectorAll(".btn-add-love");
+      // khởi tạo danh sách chứa các phần tử có class .show-love-number
+      // -> các phần tử này là phần sẽ hiện thị tổng số thông báo của từng khối
+      const loveShowNumber = document.querySelectorAll(".show-love-number");
+      // khởi tạo danh sách chứa các phần tử có class .hidden-love-number
+      // -> các phần tử này lưu lại số thông báo của từng khối
+      const hiddenLoveNumber = document.querySelectorAll(".hidden-love-number");
+      // khởi tạo biến chạy ban đầu
+      let currentIndex = 0;
+      // dùng vòng for duyệt tất cả các phần tử trong danh sách nút bấm
+      for (let index = 0; index < btnListLove.length; index++) {
+        //mỗi phần tử nút bấm có trong list đều được gán sự kiện click
+        btnListLove[index].addEventListener("click", function () {
+          // khi sự kiện click diễn ra
+
+          // hiddenLoveNumber[index].innerHTML -> lúc này nó sẽ hiện thị giá trị được lưu trên trang web ban đầu = 0
+          // giá trị này sẽ được gán với biến current index đẻ cho biến này chạy
+          currentIndex = hiddenLoveNumber[index].innerHTML;
+          // tăng giá trị biến này lên 1 mỗi lần click
+          currentIndex++;
+          // lưu lại giá trị vừa tăng vào biến lưu tổng số lần click của từng khối
+          hiddenLoveNumber[index].innerHTML = currentIndex;
+          // lưu giá trị vừa tăng vào biến hiện thị giá trị index -> biến này sẽ giúp hiện thị số lần click lên web theo từng khối
+          loveShowNumber[index].innerHTML = currentIndex;
+          //dựa vào vị trí index đã được click-> thêm style opacity = 1 -> hiện thị phần tử lên
+          loveShowNumber[index].style.opacity = "1";
+          // dựa vào vị trí index của từng khối -> ta biết khối nào sẽ nhận sự kiện click ->
+          // tổng số lần click của khối nào   -> khối nào sẽ được hiện thị
+
+          // gọi hàm để đếm tổng số lần click -> mỗi lần click gọi hàm -> hàm này duyệt qua toàn bộ danh sách chứa số lần bấm-> rồi hiện thị
+          all();
+        });
+      }
+
+      // tổng số lần click tất cả các khối
+      // gọi ra phần tử sẽ hiện thị tổng lần click nút trái tim
+      const allOfLove = document.querySelector(".all-of-love");
+      // khởi tạo biến để đếm
+      let a = 0;
+      // tạo hàm đếm
+      function all() {
+        // duyệt qua danh sách lưu trữ tổng số lần click của từng phần tử
+        for (let index = 0; index < hiddenLoveNumber.length; index++) {
+          // lấy biến a cộng dồn với từng phần tử có trong danh sách
+          // Number(hiddenLoveNumber[index].innerHTML) -> ép kiểu của các phần tử trong danh sách lúc này đang trả về dạng chuỗi -> chuyển sang dạng số nguyên
+          a += Number(hiddenLoveNumber[index].innerHTML);
+        }
+        // sau khi duyệt toàn bộ danh sách ta có tổng lần click được lưu trong biến a
+        // biến hiện thị gán bằng biến a
+        allOfLove.innerHTML = a;
+        // reset biến a về 0 -> cho lần đếm sau
+        a = 0;
+      }
+
+      // xử lí bar
+      const barButton = document.querySelector(".bar-btn");
+      const barContent = document.querySelector(".bar-content");
+      barButton.addEventListener("click", function () {
+        barContent.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
