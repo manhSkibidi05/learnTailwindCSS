@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+/* phần nav */
+.dropdown-content {
+  opacity:0;
+  pointer-events:none
+}
+.dropdown-content.drop {
+  opacity: 1;
+  pointer-events:auto;
+  
+}
+.bar .bar-content{
+  transform:translateX(-100%);
+}
+.bar.open .bar-content{
+  transform:translateX(0);
+}
+.bar .icon-open{
+  width:24px;
+  height:24px;
+}
+.bar.open .icon-open{
+  width:0;
+  height:0;
+}
+.bar .icon-close{
+  width:0;
+  height:0;
+}
+.bar.open .icon-close{
+  width:24px;
+  height:24px;
+}
+/* phần plan */
+.plan.active .plan-btn::after{
+  transform:translateX(110%);
+  
+}
+.plan .plan-btn::after{
+  transform:translateX(0);
+}
+
+@theme {
+  --font-Roboto: "Roboto", "sans";
+  --font-Atkinson: "Atkinson Hyperlegible Mono";
+  --color-btn: #101928;
+  --animate-send: send 1s ease-in-out infinite;
+  --animate-run: run 18s linear infinite;
+  --animate-roll:roll 0.5s linear 1;
+  
+  
+  @keyframes send {
+    0% {
+      transform: translateX(-30px);
+    }
+    100% {
+      transform: translateX(30px);
+    }
+  };
+  @keyframes run{
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  };
+  @keyframes roll{
+    0%{
+      transform:translateY(-200%)
+    }
+    100%{
+      transform:translateY(0)
+    }
+  }
+ 
+}
+ @keyframes slide{
+    from { 
+      transform: translateX(0);
+    } 
+    to { 
+      transform: translateX(-100%);
+    }
+ 
+  }
