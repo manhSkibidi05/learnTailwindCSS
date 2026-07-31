@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+    --font-DmSans:"DM Sans";
+    --font-Inter:"Inter";
+    --color-sun:#faf4f5;
+    --color-primary:#1a1a1a;
+    --animate-run: run 5s linear infinite ;
+     --animate-runReverse: runReverse 7s linear infinite ;
+
+  @keyframes run{
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes runReverse{
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+};
+
+/* Khi có class .open */
+.btn-bar.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.btn-bar.open span:nth-child(2) {
+  opacity: 0; /* ẩn thanh giữa */
+}
+.btn-bar.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+
+
