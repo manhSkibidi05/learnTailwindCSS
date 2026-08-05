@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .sidebar a:hover {
+      background: #34495e;
+      padding-left: 5px;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <a onclick="showPage('dashboard')">Dashboard</a>
+    <a onclick="showPage('reports')">Reports</a>
+    <a onclick="showPage('settings')">Settings</a>
+  </div>
+
+  <div class="content" id="content">
+    <!-- Nội dung sẽ thay đổi ở đây -->
+  </div>
+
+  <script>
+    function showPage(page) {
+      const content = document.getElementById('content');
+      if (page === 'dashboard') {
+        content.innerHTML = `
+          <h1>Dashboard</h1>
+          <p>Đây là trang tổng quan với các biểu đồ và số liệu.</p>
+        `;
+      } else if (page === 'reports') {
+        content.innerHTML = `
+          <h1>Reports</h1>
+          <p>Đây là trang báo cáo với dữ liệu chi tiết.</p>
+        `;
+      } else if (page === 'settings') {
+        content.innerHTML = `
+          <h1>Settings</h1>
+          <p>Đây là trang cài đặt để thay đổi cấu hình.</p>
+        `;
+      }
+    }
+
+    // Mặc định hiển thị Dashboard
+    showPage('dashboard');
+  </script>
+</body>
+</html>
