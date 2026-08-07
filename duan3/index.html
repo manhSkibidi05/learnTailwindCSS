@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>Main</title>
+  </head>
+  <body
+    class="dark:bg-black dark:text-white bg-white transition-all duration-300 ease-linear font-Inter"
+  >
+    <!-- container -->
+    <div
+      class="container lg:max-w-5xl mx-auto grid grid-cols-[200px_1fr_200px]"
+    >
+      <!-- nav -->
+      <nav class="flex flex-col py-5 pe-3">
+        <!-- logo -->
+        <div class="">
+          <img class="w-25" src="./img/moilogo.png" alt="" />
+        </div>
+        <!-- menu -->
+        <ul class="flex flex-col mt-10 gap-3">
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Explore</a
+            >
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Notifications</a
+            >
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Messages</a
+            >
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Bookmarks</a
+            >
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Profile</a
+            >
+          </li>
+          <li
+            class="control-page py-2 ps-2 flex gap-3 items-center dark:text-grayPrimary cursor-pointer group hover:bg-graySecondary rounded-full transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+            <a
+              class="group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Settings</a
+            >
+          </li>
+          <li class="mt-2">
+            <button
+              class="p-2 cursor-pointer w-full bg-lightPrimary hover:bg-lightSecondary text-darkPrimary rounded-full font-bold"
+            >
+              Post
+            </button>
+          </li>
+        </ul>
+        <!-- profile -->
+        <div class="mt-auto">
+          <!-- button dark mode -->
+          <div
+            class="btn-darkMode flex group gap-3 text-grayPrimary py-2 ps-2 hover:bg-graySecondary rounded-full cursor-pointer transition-all duration-200 ease-linear"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+              />
+            </svg>
+            <a
+              class="text-sm group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+            >
+              Switch to light
+            </a>
+          </div>
+          <!-- profile -->
+          <div
+            class="mt-2 flex gap-2 py-2 ps-2 hover:bg-graySecondary rounded-full items-center"
+          >
+            <img
+              class="w-8 h-8 rounded-full object-center object-cover"
+              src="./img/deptrai.jpg"
+              alt=""
+            />
+            <div class="flex flex-col">
+              <h1 class="text-xs font-semibold">Phan Manh</h1>
+              <small class="text-xs text-grayPrimary">@moimoi05</small>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- page content -->
+      <section class="page-content border-x border-graySecondary h-screen">
+        <!-- page-top -->
+        <div
+          class="page-top grid grid-cols-2 border-b border-graySecondary justify-items-center"
+        >
+          <div
+            class="group hover:bg-graySecondary py-3 w-full flex justify-center cursor-pointer transition-all duration-200 ease-linear"
+          >
+            <a
+              class="text-md text-grayPrimary group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >For you</a
+            >
+          </div>
+          <div
+            class="group hover:bg-graySecondary py-3 w-full flex justify-center cursor-pointer transition-all duration-200 ease-linear"
+          >
+            <a
+              class="text-md text-grayPrimary group-hover:text-lightPrimary transition-all duration-200 ease-linear"
+              >Following</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- page search -->
+      <section class="flex flex-col py-5 ps-3">
+        <!-- search -->
+        <div
+          class="flex group p-2 border border-graySecondary rounded-full overflow-hidden"
+        >
+          <input
+            class="outline-none"
+            type="text"
+            name=""
+            id=""
+            placeholder="Search here..."
+          />
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // xử lí phần chuyển trang
+      const pageBtn = document.querySelectorAll(".control-page");
+      const page = document.querySelector(".page-content");
+
+      for (let index = 0; index < pageBtn.length; index++) {
+        pageBtn[index].addEventListener("click", function () {
+          switch (index) {
+            case 0:
+              page.innerHTML = `<div class="page-top grid grid-cols-2 border-b border-graySecondary justify-items-center">
+            <div class="group hover:bg-graySecondary py-3 w-full flex justify-center cursor-pointer transition-all duration-200 ease-linear">
+             <a class="text-md text-grayPrimary group-hover:text-lightPrimary transition-all duration-200 ease-linear">For you</a>
+            </div>
+            <div class="group hover:bg-graySecondary py-3 w-full flex justify-center cursor-pointer transition-all duration-200 ease-linear">
+              <a class="text-md text-grayPrimary group-hover:text-lightPrimary transition-all duration-200 ease-linear">Following</a>
+            </div>
+            </div>`;
+              break;
+            case 1:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Explore Page</h1>`;
+              break;
+            case 2:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Notifications Page</h1>`;
+              break;
+            case 3:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Messages Page</h1>`;
+              break;
+            case 4:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Bookmarks Page</h1>`;
+              break;
+            case 5:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Profile Page</h1>`;
+              break;
+            case 6:
+              page.innerHTML = `<h1 class="p-5 text-lg font-bold">Settings Page</h1>`;
+              break;
+            default:
+              break;
+          }
+          pageBtn[index].classList.add("bg-graySecondary");
+          for (let j = 0; j < pageBtn.length; j++) {
+            if (j !== index) {
+              pageBtn[j].classList.remove("bg-graySecondary");
+            }
+          }
+        });
+      }
+
+      // xử lí dark mode
+      const btnDarkMode = document.querySelector(".btn-darkMode");
+      btnDarkMode.addEventListener("click", function () {
+        const html = document.querySelector("html");
+        const textBtn = btnDarkMode.querySelector("a");
+        html.classList.toggle("dark");
+        if (html.classList.contains("dark")) {
+          textBtn.innerText = "Switch to light";
+        } else {
+          textBtn.innerText = "Switch to dark";
+        }
+      });
+    </script>
+  </body>
+</html>
