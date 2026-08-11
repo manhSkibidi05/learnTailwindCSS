@@ -321,10 +321,10 @@
       }
 
       // xử lí dark mode
-      const btnDarkMode = document.querySelector(".btn-darkMode");
-      btnDarkMode.addEventListener("click", function () {
+      const btnDarkModes = document.querySelector(".btn-darkMode");
+      btnDarkModes.addEventListener("click", function () {
         const html = document.querySelector("html");
-        const textBtn = btnDarkMode.querySelector("a");
+        const textBtn = btnDarkModes.querySelector("a");
         html.classList.toggle("dark");
         if (html.classList.contains("dark")) {
           textBtn.innerText = "Switch to light";
